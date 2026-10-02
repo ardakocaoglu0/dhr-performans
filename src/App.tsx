@@ -6,133 +6,221 @@ import purge from "./data/purge.json";
 type Row = { id: string; title: string; pass: boolean; expected: string; actual: string; evidence: string };
 const rows = scenarios as Row[];
 
-const tabs = ["Durum", "Döngü", "Sözlük", "Formül", "Laboratuvar", "Kullanım", "Senaryolar", "Bulgular"] as const;
+const tabs = ["Özet", "Nasıl işler", "Sözlük", "Puan hesabı", "Kim nerede", "Senaryolar", "Bulgular"] as const;
+
+const groups: { id: string; title: string }[] = [
+  { id: "AYAR", title: "Birim ayarları" },
+  { id: "SABLON", title: "Şablon" },
+  { id: "DONEM", title: "Dönem" },
+  { id: "HEDEF", title: "Hedef, KPI ve OKR" },
+  { id: "FORM", title: "Değerlendirme formu" },
+  { id: "PUAN", title: "Puan" },
+  { id: "360", title: "360 derece" },
+  { id: "KUTU", title: "9 kutu" },
+  { id: "KAL", title: "Kalibrasyon" },
+  { id: "ITIRAZ", title: "İtiraz" },
+  { id: "AKS", title: "Yetenek aksiyonu" },
+  { id: "PIP", title: "PIP" },
+  { id: "YETKIN", title: "Yetkinlik" },
+  { id: "YETKI", title: "Kim neyi görebilir" },
+  { id: "UI", title: "Ekran" },
+  { id: "ANALIZ", title: "Raporlar" },
+  { id: "ORG", title: "Kadro" },
+  { id: "ARA", title: "Ara görüşme" },
+  { id: "EK", title: "Ek görev" },
+];
+
+const unitName: Record<string, string> = {
+  p360: "Perf 360",
+  kpi: "Perf KPI",
+  box: "Perf 9Box",
+  pip: "Perf PIP",
+  miras: "Perf Miras",
+  parent: "Performans Test",
+};
+
+const roleName: Record<string, string> = {
+  director: "Müdür",
+  lead: "Takım lideri",
+  ic: "Uzman",
+  peer: "Akran havuzu",
+  joiner: "Yeni giren",
+  excluded: "Kapsam dışı",
+  coach: "Laboratuvar direktörü",
+};
+
+const findings: Record<string, { what: string; why: string }> = {
+  "PRF-SABLON-12": {
+    what: "Sistemin kendi hesapladığı KPI bölümünde beş kişi tanımlı, ama hiçbiri puan yazamıyor.",
+    why: "Dönem bu haliyle başlamıyor. Puanı yönetici verecek şekilde bölüm düzeltilince dönem açıldı.",
+  },
+  "PRF-360-02": {
+    what: "Birimde en fazla 5 akran olmalı. 6 akran yine de kaydedildi.",
+    why: "Üst sınır ekranda duruyor, kayıt sırasında uygulanmıyor.",
+  },
+  "PRF-AKS-02": {
+    what: "Terfi, gelişim veya takdir gibi bir aksiyon açılıyor. Onay adımı 404 dönüyor.",
+    why: "Onaylanmayan aksiyon tamamlanamıyor.",
+  },
+  "PRF-PIP-01": {
+    what: "PIP, bağlı olduğu aksiyon onaylanmadan açılmıyor.",
+    why: "Onay adımı çalışmadığı için iyileştirme planı da kurulamadı.",
+  },
+};
+
+function groupOf(id: string) {
+  const key = id.split("-")[1] || "";
+  return groups.find((g) => g.id === key)?.title || "Diğer";
+}
+
+function readable(actual: string) {
+  const text = actual.trim();
+  if (!text) return "Kayıt var, kısa sonuç yazılmamış.";
+  if (text === "ok" || text === "kaydedildi") return "Oldu.";
+  if (text.startsWith("{") || text.startsWith("[")) return "Sistem cevap verdi. Ayrıntı teknik kayıtta.";
+  if (text.length > 180) return text.slice(0, 180) + "…";
+  return text;
+}
 
 export default function App() {
-  const [tab, setTab] = useState<(typeof tabs)[number]>("Durum");
-  const [q, setQ] = useState("");
+  const [tab, setTab] = useState<(typeof tabs)[number]>("Özet");
   const passed = rows.filter((r) => r.pass).length;
   const failed = rows.filter((r) => !r.pass);
-  const shown = useMemo(
-    () => rows.filter((r) => (r.id + r.title + r.actual).toLocaleLowerCase("tr").includes(q.toLocaleLowerCase("tr"))),
-    [q]
-  );
 
   return (
     <>
       <header>
-        <h1>DHR Performans</h1>
-        <p>
-          dhrtest2 üzerindeki performans modülünün nasıl çalıştığı, kim ne yapar ve laboratuvar testinin sonucu.
-          Hakem, ürünün kendi kılavuzu ve puan kırılımıdır.
-        </p>
-        <div className="meta">
-          <span className="pill">Ortam dhrtest2</span>
-          <span className="pill">{passed} geçti</span>
-          <span className="pill">{failed.length} bulgu</span>
-          <span className="pill">{roster.length} çalışan</span>
+        <div className="wrap">
+          <h1>DHR’de performans nasıl işler?</h1>
+          <p>
+            Bir çalışanın hedefi, puanı, 9 kutusu ve iyileştirme planı hangi sırayla oluşur;
+            testte ne tuttu, ne tutmadı.
+          </p>
+          <div className="meta">
+            <span className="pill">dhrtest2</span>
+            <span className="pill">{passed} senaryo geçti</span>
+            <span className="pill">{failed.length} sorun</span>
+            <span className="pill">{roster.length} deneme çalışanı</span>
+          </div>
         </div>
       </header>
       <nav>
-        {tabs.map((name) => (
-          <button key={name} className={tab === name ? "on" : ""} onClick={() => setTab(name)}>
-            {name}
-          </button>
-        ))}
+        <div className="wrap" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {tabs.map((name) => (
+            <button key={name} className={tab === name ? "on" : ""} onClick={() => setTab(name)}>
+              {name}
+            </button>
+          ))}
+        </div>
       </nav>
       <main>
-        {tab === "Durum" && <Status passed={passed} failed={failed.length} />}
-        {tab === "Döngü" && <Cycle />}
-        {tab === "Sözlük" && <Glossary />}
-        {tab === "Formül" && <Formula />}
-        {tab === "Laboratuvar" && <Labs />}
-        {tab === "Kullanım" && <Guide />}
-        {tab === "Senaryolar" && (
-          <>
-            <h2>Senaryo matrisi</h2>
-            <input placeholder="Ara" value={q} onChange={(e) => setQ(e.target.value)} />
-            <Table rows={shown} />
-          </>
-        )}
-        {tab === "Bulgular" && (
-          <>
-            <h2>Tutmayanlar</h2>
-            <Table rows={failed} />
-          </>
-        )}
+        <div className="wrap">
+          {tab === "Özet" && <Summary passed={passed} failed={failed} />}
+          {tab === "Nasıl işler" && <Cycle />}
+          {tab === "Sözlük" && <Glossary />}
+          {tab === "Puan hesabı" && <Formula />}
+          {tab === "Kim nerede" && <People />}
+          {tab === "Senaryolar" && <Scenarios />}
+          {tab === "Bulgular" && <Findings rows={failed} />}
+        </div>
       </main>
     </>
   );
 }
 
-function Status({ passed, failed }: { passed: number; failed: number }) {
+function Summary({ passed, failed }: { passed: number; failed: Row[] }) {
   const deleted = purge.deleted?.[0]?.body?.totalDeleted;
   return (
     <>
-      <h2>Durum</h2>
-      <div className="cards">
-        <div className="card"><b className="ok">{passed}</b>geçen senaryo</div>
-        <div className="card"><b className="bad">{failed}</b>bulgu</div>
-        <div className="card"><b>{deleted ?? "—"}</b>silinen eski performans kaydı</div>
-        <div className="card"><b>80</b>1–5 ölçeğinde 4 puanın karşılığı</div>
-      </div>
-      <p className="note">
-        Temizlik yalnız performans tablolarını sildi. Çalışan, birim, pozisyon ve bordro duruyor. Yeni kadro
-        Performans Test biriminin altında, sicil 7101–7144, posta <code>@perf.com</code>, şifre <code>Perf123!</code>.
+      <h2>Kısa sonuç</h2>
+      <p className="lead">
+        Modül bir yıl boyunca hedef, değerlendirme, kalibrasyon ve gelişim planını aynı dönem içinde tutuyor.
+        Puan, şablondaki ağırlıklardan çıkıyor. Birim ayarlarındaki 40 / 30 / 20 / 10 yalnız yeni şablonu doldurur, skora girmez.
       </p>
+      <div className="cards">
+        <div className="card"><b className="ok">{passed}</b><span>Geçen senaryo</span></div>
+        <div className="card"><b className="bad">{failed.length}</b><span>Açık sorun</span></div>
+        <div className="card"><b>{deleted ?? "—"}</b><span>Silinen eski performans kaydı</span></div>
+        <div className="card"><b>80</b><span>5 üzerinden 4 puanın karşılığı</span></div>
+      </div>
+      <div className="note">
+        <b>Hesaba girmek.</b> Sicil 7101–7144, posta <code>adsoyad@perf.com</code>, şifre <code>Perf123!</code>.
+        Çalışan ve bordro kayıtları silinmedi. Yalnız eski performans dönemleri, formlar ve puanlar temizlendi.
+      </div>
+      <h3>Önce buraya bakın</h3>
+      <div className="grid">
+        <article className="item"><b>Puan.</b> Yönetici 5 üzerinden 4 verdi. Sistem bunu 80 olarak yazdı.</article>
+        <article className="item"><b>Gizlilik.</b> Sonuç çalışana kapalıysa karne de itiraz da kapalı.</article>
+        <article className="item"><b>9 kutu.</b> Satır performans, sütun potansiyel. Potansiyeli bitmemiş kişi kutuya girmez.</article>
+        <article className="item"><b>PIP.</b> İyileştirme planı, aksiyon onaylanmadan açılmıyor. Onay adımı şu an 404 veriyor.</article>
+      </div>
     </>
   );
 }
 
 function Cycle() {
   const steps = [
-    ["Dönem kurulumu", "İK tarih, birim, şablon ve potansiyel seçer. Dönem başlayınca şablon sürümleşir."],
-    ["Hedef", "Hedef onaylanmadan ölçülmez. Onaydan sonra değişiklik ayrı talep ister."],
-    ["Check-in", "İlerleme notu puana girmez. Kanıt olarak durur."],
-    ["Öz değerlendirme", "Kör değerlendirme açıksa yönetici öz puanı göremez."],
-    ["Yönetici", "Eşik altı puanda yorum zorunlu olabilir. Sonuç açılınca itiraz penceresi gelir."],
-    ["Akran ve ast", "Model 90, 180, 270 veya 360 hangisine izin veriyorsa o roller toplanır."],
-    ["Kalibrasyon", "Puan, gerekçeyle düzeltilir. Çan eğrisi dağılımı gösterir."],
-    ["9 kutu", "Satır performans, sütun potansiyel. Potansiyeli kesinleşmemiş kişi matrise girmez."],
-    ["Aksiyon ve PIP", "Terfi, ücret, yedekleme, gelişim, takdir veya PIP. PIP, aksiyon onaylanmadan açılmaz."],
+    ["Dönemi açın", "İK tarih aralığını, birimi ve şablonu seçer. Dönem başlayınca şablon kilitlenir. Sonradan şablonu değiştirmek o dönemin kuralını değiştirmez."],
+    ["Hedefi yazın", "Çalışan veya yönetici hedefi yazar. Yönetici onaylamadan hedef ölçülmez. Onaydan sonra değişiklik ayrı bir taleple olur."],
+    ["Ara not düşün", "Yıl içinde check-in ve ara görüşme yazılır. Bunlar kanıttır, puana eklenmez."],
+    ["Öz değerlendirme", "Çalışan kendini puanlar. Kör değerlendirme açıksa yönetici bu puanı göremez."],
+    ["Yönetici puanı", "Eşik altındaki puana yorum yazmak zorunlu olabilir. Sonuç çalışana açılınca itiraz süresi başlar."],
+    ["Akran ve ast", "Şablon 90 ise yalnız yönetici vardır. 180 öz + yönetici, 270 buna akranı ekler, 360 ast ve İK’yi de alır."],
+    ["Kalibrasyon", "Yöneticiler aynı sıkılıkta puanlamamış olabilir. Komite puanı gerekçeyle düzeltir."],
+    ["9 kutu", "Yüksek performans ile yüksek potansiyel aynı şey değildir. İkisi ayrı eksendir."],
+    ["Gelişim", "Sonuca göre terfi, ücret, yedekleme, takdir, gelişim veya PIP açılır."],
   ];
   return (
     <>
-      <h2>Döngü</h2>
-      <ol>
-        {steps.map(([t, d]) => (
-          <li key={t}><b>{t}.</b> {d}</li>
+      <h2>Bir dönem nasıl yürür?</h2>
+      <p className="lead">Sıra ürünün kendi kılavuzundaki akıştır. Her adımın kendi tarihi vardır.</p>
+      <div className="grid">
+        {steps.map(([title, text], i) => (
+          <article className="step" key={title}>
+            <div className="num">{i + 1}</div>
+            <div><b>{title}</b><div>{text}</div></div>
+          </article>
         ))}
-      </ol>
+      </div>
+      <h3>Kim ne yapar?</h3>
+      <div className="grid">
+        <article className="item"><b>İK.</b> Dönemi, şablonu ve yetkinlik kütüphanesini kurar. İtirazı kapatır. Trendleri okur. Birim ayarı, organizasyon biriminin Performans Ayarları sekmesindedir.</article>
+        <article className="item"><b>Yönetici.</b> Kendi ekibinin hedefini onaylar, puanlar, PIP açmak ister. Başka ekibin kaydını onaylayamaz.</article>
+        <article className="item"><b>Çalışan.</b> Performansım ekranında hedefini ve formunu görür. Sonuç kapalıysa karne gelmez. İK raporuna giremez.</article>
+        <article className="item"><b>Akran.</b> Kendisine atanan formu doldurur. Anonim seçildiyse adı karşı tarafa açılmaz.</article>
+      </div>
     </>
   );
 }
 
 function Glossary() {
   const items = [
-    ["Birim ağırlıkları 40/30/20/10", "Yeni şablonu doldurur. Skora girmez. Toplam 100 olmak zorunda değildir."],
-    ["Şablon ağırlıkları", "Rol ve kategori toplamı 100 olmalıdır. Değilse kayıt reddedilir."],
-    ["90 / 180 / 270 / 360", "Yalnız yönetici; öz + yönetici; bunlara akran; tam tur (ast ve İK dahil)."],
-    ["Kör değerlendirme", "Açıksa öz ve yönetici paralel puanlar. Kapalıysa önce çalışan, sonra yönetici öz puanı görür."],
-    ["Sonucu çalışana göster", "Kapalıysa karne ve itiraz da kapalıdır. İtiraz günü 0’a zorlanır."],
-    ["Akran anonim", "Değerlendirilen kişi akranın adını görmez."],
-    ["Yorum eşiği", "Bu puanın altı yorumsuz gönderilemez."],
-    ["Min / maks akran", "Birim ayarı. Testte 6 akran, üst sınır 5 iken kabul edildi."],
-    ["Yetkinlik ölçeği", "Puan 1 ile bu değer arasındadır. Alt birim kendi ayarı yoksa miras alır."],
-    ["Beklentiye oranlı", "Yetkinlik puanı pozisyon beklentisine göre ölçeklenir, tavan %100. Beklenti yoksa ham puan."],
-    ["Ek görev yetkinliği", "Yedekleme sekmesini açar. Performans skoruna girmez."],
-    ["Aksiyon e-postası", "Onay, atama ve hatırlatma postası. Düşük puandan PIP açmaz."],
-    ["PIP görünürlüğü", "Varsayılan kapalı. Açıksa çalışan Performansım’da kendi planını ve notunu görür."],
-    ["Ara görüşme", "Puan üretmez."],
-    ["Kariyer beyanı", "Potansiyel skorunu değiştirmez."],
-    ["Dönem dışı hedef", "Ağırlık %0 kaydolur."],
+    ["Şablon", "Puanın iskeleti. Hangi bölüm var, her bölümün ağırlığı ne, kim puanlıyor."],
+    ["Birim ayarı", "Yeni şablonun ilk halini doldurur. 40 / 30 / 20 / 10 skora kendiliğinden girmez."],
+    ["90, 180, 270, 360", "Değerlendirmeye kimlerin gireceği. 90 yalnız yönetici, 360 herkes."],
+    ["Kör değerlendirme", "Açıksa çalışan ve yönetici aynı anda puanlar, yönetici öz puanı görmez. Kapalıysa önce çalışan biter."],
+    ["Sonucu göster", "Kapalıysa çalışan karnesini görmez ve itiraz edemez."],
+    ["Yorum eşiği", "Bu puanın altında yorum boş bırakılamaz."],
+    ["Akran sayısı", "En az ve en çok kaç akran atanacağı. Üst sınırın kaydı durdurmadığı görüldü."],
+    ["Yetkinlik ölçeği", "Yetkinlik puanı 1 ile bu sayı arasındadır. Alt birim kendi ayarını yazmadıysa üst birimden alır."],
+    ["Beklentiye oranlı", "Yetkinlik, pozisyondan beklenen seviyeye göre ölçeklenir. Beklenti yoksa ham puan kullanılır."],
+    ["Ek görev", "Asıl işin yanındaki rol. Skora girmez, yedekleme listesinde durur."],
+    ["Aksiyon e-postası", "Onay ve hatırlatma maili gönderir. Düşük puandan kendiliğinden PIP açmaz."],
+    ["PIP", "Performans iyileştirme planı. Hedef, tarih ve ara kontrol vardır. Çalışan ancak ayar açıksa kendi planını görür."],
+    ["9 kutu", "Performans ve potansiyeli yan yana koyan tablo. Dokuz hücre vardır."],
+    ["Kalibrasyon", "Ham puanı komitenin gerekçeli puanından ayıran oturum."],
+    ["Ara görüşme", "Dönem ortası konuşma kaydı. Puan üretmez."],
+    ["Dönem dışı hedef", "Takip için durur, ağırlığı sıfır yazılır, dönemin puanına girmez."],
   ];
   return (
     <>
-      <h2>Sözlük</h2>
-      {items.map(([t, d]) => (
-        <p key={t}><b>{t}.</b> {d}</p>
-      ))}
+      <h2>Kelimeler</h2>
+      <p className="lead">Ekranda görünen ayarın ne işe yaradığı.</p>
+      <div className="grid">
+        {items.map(([title, text]) => (
+          <article className="item" key={title}><b>{title}.</b> {text}</article>
+        ))}
+      </div>
     </>
   );
 }
@@ -140,82 +228,139 @@ function Glossary() {
 function Formula() {
   return (
     <>
-      <h2>Formül</h2>
-      <p>Ürün kılavuzundaki hesap:</p>
-      <p><code>Final = Σ kategori (kategori ağırlığı × Σ katman (katman ağırlığı × o katmanın kategori puanı))</code></p>
+      <h2>Puan nasıl çıkar?</h2>
+      <p className="lead">
+        Önce her bölümün puanı hesaplanır. Sonra bölümler kendi ağırlıklarıyla toplanır.
+        Bölümü puanlayan kişi yoksa o kişi düşer, kalanların oranı korunur. Hiç puanlanmamış bölüm sıfır sayılmaz, hesaptan çıkar.
+      </p>
+      <div className="example">
+        <div className="kicker">Laboratuvarda ölçülen örnek</div>
+        <p>
+          Şablon 90 derece: yalnız yönetici, ağırlığı %100. Tek soru, ölçek 1–5. Yönetici <b>4</b> yazdı.
+        </p>
+        <p>4 ÷ 5 = 0,80. Bunun 100 karşılığı <b>80</b>.</p>
+        <p>Kırılım ekranındaki genel skor da 80. Ağırlıklar zaten %100 olduğu için başka bir çarpan yok.</p>
+      </div>
       <ul>
-        <li>Puanlanmamış kategori sıfır sayılmaz, formülden çıkar.</li>
-        <li>Puanlanmamış katman düşer. Kalan ağırlıklar oran korunarak yeniden hesaplanır.</li>
-        <li>Yönetici override doluysa ve gerekçe varsa efektif skor odur.</li>
-        <li>Açık uç ve dosya kanıtı puana dönmez.</li>
+        <li>Yönetici gerekçeli bir düzeltme yazdıysa, hesaplanan puan değil o düzeltme geçerlidir.</li>
+        <li>Açık uçlu soru ve dosya kanıtı puana dönmez.</li>
+        <li>KPI üç türlü olabilir: arttıkça iyi, azaldıkça iyi, eşiği geçti ya da geçmedi. Bu üçünün iç hesabı ekranda yazmıyor. Kırılım notu ile saklanan skor ayrışırsa sorun sayılır.</li>
       </ul>
-      <p className="note">
-        Laboratuvar ölçümü: 90° şablonda, tek kriter, yönetici puanı 4 (ölçek 1–5). Kırılımdaki genel skor 80.
-        Yani ölçek puanı 0–100 bandına <code>puan / 5 × 100</code> ile taşınıyor. Ağırlıklar 100 olduğu için final de 80.
-      </p>
-      <p>
-        KPI’nin doğru orantı, ters orantı ve eşik aritmetiği arayüzde yazılı değil. Üç tip hedef oluşturuldu ve
-        gerçekleşen değer güncellendi. Sayısal formül, kırılım notu skordan ayrışırsa bulgu sayılır.
-      </p>
     </>
   );
 }
 
-function Labs() {
-  const units = [
-    ["Perf Miras", "Kendi ayarı yok, üst birimden alır. Aylık dönem, 90° şablon."],
-    ["Perf 360", "Sonuç gizli, kör, anonim akran, yorum eşiği 7. Yıllık dönem."],
-    ["Perf KPI", "Polivalans açık, sonuç açık, çeyrek dönem. KPI ve OKR burada."],
-    ["Perf 9Box", "Potansiyel açık, kalibrasyon, altı aylık dönem. Eşikler 45/75 ve 2/4."],
-    ["Perf PIP", "Çalışan PIP’ini görür, özel tarih aralığı, 270° şablon."],
-  ];
+function People() {
+  const units = ["p360", "kpi", "box", "pip", "miras"];
   return (
     <>
-      <h2>Laboratuvar</h2>
-      {units.map(([n, d]) => <p key={n}><b>{n}.</b> {d}</p>)}
-      <h3>Girişler</h3>
-      <p>Şifre hepsi için Perf123!</p>
-      <table>
-        <thead><tr><th>Sicil</th><th>Ad</th><th>Posta</th><th>Birim</th><th>Rol</th></tr></thead>
-        <tbody>
-          {roster.map((p) => (
-            <tr key={p.sicil}>
-              <td>{p.sicil}</td><td>{p.name}</td><td>{p.email}</td><td>{p.unit}</td><td>{p.title}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h2>Deneme kadrosu</h2>
+      <p className="lead">
+        Beş birim, birbirinin ayarını bozmasın diye ayrıldı. Hepsinin şifresi <b>Perf123!</b>
+      </p>
+      <div className="grid">
+        <article className="item"><b>Perf Miras.</b> Kendi ayarı yok, üst birimden alır. Aylık dönem. Yalnız yönetici puanlar.</article>
+        <article className="item"><b>Perf 360.</b> Sonuç gizli, kör ve anonim. Yorum eşiği 7. Yıllık dönem.</article>
+        <article className="item"><b>Perf KPI.</b> Sonuç açık. Çeyrek dönem. Hedef, KPI ve OKR burada.</article>
+        <article className="item"><b>Perf 9Box.</b> Potansiyel ve kalibrasyon açık. Altı aylık dönem.</article>
+        <article className="item"><b>Perf PIP.</b> Çalışan kendi iyileştirme planını görebilir. Özel tarih aralığı.</article>
+      </div>
+      {units.map((unit) => (
+        <section key={unit}>
+          <h3>{unitName[unit]}</h3>
+          <div className="people">
+            {roster.filter((p) => p.unit === unit).map((p) => (
+              <article className="person" key={p.sicil}>
+                <b>{p.sicil}</b>
+                <div>
+                  {p.name} · {roleName[p.kind] || p.title}
+                  <div className="muted">{p.email}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
     </>
   );
 }
 
-function Guide() {
+function Scenarios() {
+  const [q, setQ] = useState("");
+  const [filter, setFilter] = useState<"all" | "pass" | "fail">("all");
+  const shown = useMemo(() => {
+    const query = q.toLocaleLowerCase("tr");
+    return rows.filter((r) => {
+      if (filter === "pass" && !r.pass) return false;
+      if (filter === "fail" && r.pass) return false;
+      const blob = (r.id + r.title + r.actual + groupOf(r.id)).toLocaleLowerCase("tr");
+      return blob.includes(query);
+    });
+  }, [q, filter]);
+  const buckets = groups
+    .map((g) => ({ ...g, rows: shown.filter((r) => groupOf(r.id) === g.title) }))
+    .filter((g) => g.rows.length);
+
   return (
     <>
-      <h2>Kullanım</h2>
-      <p><b>İK.</b> Performans Yönetimi ekranında dönemi açar, aşamayı ilerletir, şablonu ve yetkinlik kütüphanesini yönetir, itirazı sonuçlandırır, trendi okur. Birim ayarları Organizasyon Birimi ekranının Performans Ayarları sekmesindedir.</p>
-      <p><b>Yönetici.</b> Ekibinin hedefini onaylar, check-in yazar, puanlar, PIP açar, kendi ekibinin 9 kutusunu görür. Başka ekibin kaydını onaylayamaz.</p>
-      <p><b>Çalışan.</b> Performansım ekranında hedefini, öz değerlendirmesini ve, ayar açıksa, PIP notunu görür. Sonuç kapalıysa karne gelmez. İK özetine giremez.</p>
-      <p><b>Akran ve ast.</b> Atanan Değerlendirmeler sekmesinden formu doldurur. Anonimde adı karşı tarafa açılmaz.</p>
-      <p><b>Komite.</b> Kalibrasyon oturumunda kutuyu gerekçeyle taşır. Oturum kapanınca yeni taşıma olmaz.</p>
+      <h2>Ne denendi?</h2>
+      <p className="lead">Her satır bir davranış. Geçti, ürün kendi kuralına uydu demektir.</p>
+      <input placeholder="Hedef, itiraz, 9 kutu…" value={q} onChange={(e) => setQ(e.target.value)} />
+      <div className="filters">
+        <button className={filter === "all" ? "on" : ""} onClick={() => setFilter("all")}>Tümü ({rows.length})</button>
+        <button className={filter === "pass" ? "on" : ""} onClick={() => setFilter("pass")}>Geçenler</button>
+        <button className={filter === "fail" ? "on" : ""} onClick={() => setFilter("fail")}>Kalanlar</button>
+      </div>
+      {buckets.map((bucket) => (
+        <section key={bucket.id}>
+          <h3>{bucket.title}</h3>
+          <div className="grid">
+            {bucket.rows.map((r) => <Scenario key={r.id} row={r} />)}
+          </div>
+        </section>
+      ))}
     </>
   );
 }
 
-function Table({ rows: list }: { rows: Row[] }) {
+function Scenario({ row }: { row: Row }) {
+  const detail = [row.expected, row.actual, row.evidence].filter(Boolean).join("\n\n");
+  const long = row.actual.length > 80 || row.actual.includes("{");
   return (
-    <table>
-      <thead><tr><th>Kod</th><th>Senaryo</th><th></th><th>Sonuç</th></tr></thead>
-      <tbody>
-        {list.map((r) => (
-          <tr key={r.id}>
-            <td>{r.id}</td>
-            <td>{r.title}</td>
-            <td className={r.pass ? "pass" : "fail"}>{r.pass ? "Geçti" : "Kaldı"}</td>
-            <td>{r.actual}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <article className="item">
+      <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
+        <b>{row.title}</b>
+        <span className={row.pass ? "badge pass" : "badge fail"}>{row.pass ? "Geçti" : "Kaldı"}</span>
+      </div>
+      <div className="muted">{readable(row.actual)}</div>
+      {long && (
+        <details>
+          <summary>Teknik kayıt</summary>
+          <pre>{detail}</pre>
+        </details>
+      )}
+    </article>
+  );
+}
+
+function Findings({ rows: failed }: { rows: Row[] }) {
+  return (
+    <>
+      <h2>Tutmayanlar</h2>
+      <p className="lead">Dört kayıt ürünün kendi kuralına uymadı. Diğer senaryolar geçti.</p>
+      <div className="grid">
+        {failed.map((row) => {
+          const text = findings[row.id];
+          return (
+            <article className="finding" key={row.id}>
+              <div className="kicker">{row.id}</div>
+              <h3 style={{ marginTop: 4 }}>{row.title}</h3>
+              <p><b>Ne oldu.</b> {text?.what || readable(row.actual)}</p>
+              {text && <p><b>Neden önemli.</b> {text.why}</p>}
+            </article>
+          );
+        })}
+      </div>
+    </>
   );
 }
