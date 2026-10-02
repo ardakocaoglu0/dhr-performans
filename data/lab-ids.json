@@ -1,0 +1,360 @@
+{
+  "compIds": {
+    "İletişim": "187f5a80-f01d-4b97-80b8-956e509ea368",
+    "Teknik uzmanlık": "38a87810-ef73-40b5-976f-8e11eb371006",
+    "Liderlik": "0b9dcef2-4442-427e-b9a2-7a84e8163899",
+    "Müşteri odaklılık": "be3fc130-8108-4437-8027-9d51cd5c4805"
+  },
+  "t360": "23310400-75c7-4a05-a1c8-1cc062cb24fc",
+  "t90": "2171ef92-e014-464f-8a6c-c26b7734f54c",
+  "t270": "25e30246-19c7-4e24-9a7a-3e16d5408a65",
+  "tBox": "68cf285d-cdea-494e-8b87-8b200c9e8e4b",
+  "potential": "df05cb07-b06d-45aa-9f8e-72627d91b568",
+  "periods": {
+    "miras": "7ad5cb1a-deff-4ce2-9ea0-4ce461252ded",
+    "p360": "555df5bf-81c3-4a55-9d1f-bb9eb1e525f2",
+    "kpi": "0655af33-19d3-4e5b-b1e1-24833e0a4699",
+    "box": "d9ecf2f7-6722-4bf9-90fa-baae2617e353",
+    "pip": "ad7f0452-0c65-43cc-9163-bcea6833a609"
+  },
+  "readiness": {
+    "performancePeriodId": "555df5bf-81c3-4a55-9d1f-bb9eb1e525f2",
+    "periodName": "Perf 360 Yıllık",
+    "canStart": false,
+    "employeeCount": 13,
+    "enabledStageCount": 12,
+    "issues": [
+      {
+        "code": "CategoryHasNoScorer",
+        "message": "'KPI' bölümünde puanlayıcı rol seçilmedi; şablonu düzenleyin.",
+        "isBlocking": true,
+        "relatedId": "f30cb7f3-a066-46f6-933a-04b83cc1ae45",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "GoalSetting ve GoalApproval aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "392acd71-81f6-4194-8976-68da1b2ca2f0",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "GoalApproval ve Execution aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "300f968f-c230-477c-b0a0-22636d30ed11",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Execution ve SelfAssessment aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "cebfa596-2a7c-4062-982c-171909b71b50",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "SelfAssessment ve ManagerReview aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "c785d60f-b755-4ea0-b262-e06e4837e47f",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "ManagerReview ve Approval aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "f5d5cb8e-75a7-459e-abd2-2c0e8d0e45c9",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Approval ve Calibration aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "4c445805-0fa1-4121-beb9-2ede53d1b70b",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Calibration ve Publication aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "a68354ec-6e78-49c3-8c26-dfbd12cd6b7f",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Publication ve AppealWindow aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "cfc83515-b8cd-4dc9-8495-fc24a728d0c4",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "NoManagerResolved",
+        "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz.",
+        "isBlocking": true,
+        "relatedId": "04472c35-3860-4370-b7c4-e59269b8c9ca",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "NoApprovalFlow",
+        "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler.",
+        "isBlocking": false,
+        "relatedId": null,
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      }
+    ],
+    "blockingIssues": [
+      {
+        "code": "CategoryHasNoScorer",
+        "message": "'KPI' bölümünde puanlayıcı rol seçilmedi; şablonu düzenleyin.",
+        "isBlocking": true,
+        "relatedId": "f30cb7f3-a066-46f6-933a-04b83cc1ae45",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "NoManagerResolved",
+        "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz.",
+        "isBlocking": true,
+        "relatedId": "04472c35-3860-4370-b7c4-e59269b8c9ca",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      }
+    ],
+    "warnings": [
+      {
+        "code": "StageDatesOverlap",
+        "message": "GoalSetting ve GoalApproval aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "392acd71-81f6-4194-8976-68da1b2ca2f0",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "GoalApproval ve Execution aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "300f968f-c230-477c-b0a0-22636d30ed11",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Execution ve SelfAssessment aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "cebfa596-2a7c-4062-982c-171909b71b50",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "SelfAssessment ve ManagerReview aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "c785d60f-b755-4ea0-b262-e06e4837e47f",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "ManagerReview ve Approval aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "f5d5cb8e-75a7-459e-abd2-2c0e8d0e45c9",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Approval ve Calibration aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "4c445805-0fa1-4121-beb9-2ede53d1b70b",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Calibration ve Publication aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "a68354ec-6e78-49c3-8c26-dfbd12cd6b7f",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "StageDatesOverlap",
+        "message": "Publication ve AppealWindow aşamalarının tarihleri çakışıyor.",
+        "isBlocking": false,
+        "relatedId": "cfc83515-b8cd-4dc9-8495-fc24a728d0c4",
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      },
+      {
+        "code": "NoApprovalFlow",
+        "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler.",
+        "isBlocking": false,
+        "relatedId": null,
+        "affectedCount": 1,
+        "groupId": null,
+        "groupName": null
+      }
+    ],
+    "scopeRowCount": 2,
+    "excludedEmployeeCount": 1,
+    "isPotentialConfigured": false,
+    "includedCategoryWeightTotal": 100,
+    "feedbackOnlyCategoryNames": []
+  },
+  "kpiOwner": "6826f101-ca96-4777-b5ab-50fe67814e39",
+  "directGoal": "12b82a0b-093d-43f8-9907-2a4b8c919659",
+  "reviewCount": 43,
+  "matrix": [
+    {
+      "cell": 0,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 1,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 2,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 3,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 4,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 5,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 6,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 7,
+      "employeeCount": 0,
+      "employees": []
+    },
+    {
+      "cell": 8,
+      "employeeCount": 0,
+      "employees": []
+    }
+  ],
+  "t180": "8466292b-0f54-4b5f-9942-790bd226e489",
+  "breakdown": {
+    "reviewId": "11eab496-5abe-468a-b88a-28915e9c5a02",
+    "overallScore": 80,
+    "layers": [
+      {
+        "reviewerType": 1,
+        "reviewerTypeName": "Manager",
+        "score": 80,
+        "weight": 100,
+        "reviewerCount": 1
+      }
+    ],
+    "categories": [
+      {
+        "categoryId": "780f45e6-7d3a-49da-b1bc-b436bba55db7",
+        "categoryName": "Tek kriter",
+        "categoryType": 3,
+        "weight": 100,
+        "score": 80,
+        "wasScored": true,
+        "effectiveWeight": 100,
+        "scoreImpact": 0,
+        "contributedToFinal": true,
+        "reviewerAggregation": 0,
+        "allowedScorerTypes": [
+          1
+        ],
+        "isCompetencyAssessment": false
+      }
+    ],
+    "kpiScores": [],
+    "trace": {
+      "templateId": "2171ef92-e014-464f-8a6c-c26b7734f54c",
+      "templateName": "Şablon 90 yönetici",
+      "evaluationModel": 0,
+      "scoreScale": 0,
+      "competencyScoringMode": 0,
+      "criteria": [
+        {
+          "criterionId": "81e24bd7-02dd-4172-a525-19b18fe1cf14",
+          "criterionTitle": "Genel katkı",
+          "categoryId": "780f45e6-7d3a-49da-b1bc-b436bba55db7",
+          "categoryName": "Tek kriter",
+          "reviewerType": 1,
+          "reviewerTypeName": "Manager",
+          "criterionWeight": 100,
+          "rawAverage": 4,
+          "normalizedScore": 80,
+          "expectedLevel": null,
+          "competencyScaleMax": null,
+          "gapAdjustedScore": null,
+          "effectiveScore": 80,
+          "scorerCount": 1
+        }
+      ],
+      "layerCategories": [
+        {
+          "categoryId": "780f45e6-7d3a-49da-b1bc-b436bba55db7",
+          "categoryName": "Tek kriter",
+          "reviewerType": 1,
+          "reviewerTypeName": "Manager",
+          "score": 80,
+          "effectiveLayerWeight": 100,
+          "wasScored": true
+        }
+      ],
+      "notes": []
+    }
+  },
+  "mirasReview": "11eab496-5abe-468a-b88a-28915e9c5a02",
+  "cells": [
+    null
+  ]
+}

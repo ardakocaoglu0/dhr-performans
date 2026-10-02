@@ -1,0 +1,570 @@
+{
+  "loginUrl": "https://dhrtest2.d1-tech.com.tr/dashboard",
+  "at": "2026-10-02T14:46:16.653Z",
+  "endpoints": {
+    "/api/OrganizationalUnit/filteredByUnitAbilities": {
+      "status": 200,
+      "ok": true,
+      "count": 39,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "parentId",
+        "location",
+        "parent",
+        "unitLeaveFlowSteps",
+        "unitInventoryFlowSteps",
+        "unitStockFlowSteps",
+        "stockManagers",
+        "unitDocumentFlowSteps",
+        "unitPaymentFlowSteps",
+        "unitOvertimeFlowSteps",
+        "unitTravelFlowSteps",
+        "employeeInfoTabs",
+        "employeeInfoSections",
+        "employeeFields",
+        "leaveTypes",
+        "travelTypes",
+        "workingHourTypes",
+        "roles",
+        "createdBy",
+        "createdDate",
+        "status",
+        "modifiedDate"
+      ]
+    },
+    "/api/PerformancePeriod/all": {
+      "status": 200,
+      "ok": true,
+      "count": 2,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "code",
+        "startDate",
+        "endDate",
+        "periodType",
+        "periodStatus",
+        "organizationalUnitId",
+        "organizationalUnit",
+        "scoreScale",
+        "openedAt",
+        "closedAt",
+        "defaultTemplateId",
+        "defaultTemplateName",
+        "isPotentialEnabled",
+        "autoAdvanceStages",
+        "lockedAt",
+        "templateVersionId",
+        "templateVersionNumber",
+        "stages",
+        "potentialTemplateId",
+        "potentialTemplateName",
+        "evaluationModelOverride",
+        "effectiveEvaluationModel"
+      ]
+    },
+    "/api/PerformanceTemplate/all": {
+      "status": 200,
+      "ok": true,
+      "count": 1,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "organizationalUnitId",
+        "organizationalUnitName",
+        "evaluationModel",
+        "selfWeight",
+        "managerWeight",
+        "peerWeight",
+        "subordinateWeight",
+        "hrWeight",
+        "competencyScoringMode",
+        "description",
+        "appealPeriodDays",
+        "showResultToEmployee",
+        "requireBlindEvaluation",
+        "anonymousPeerEvaluation",
+        "categoryCount",
+        "criterionCount",
+        "categories",
+        "createdBy",
+        "createdDate",
+        "status",
+        "modifiedDate"
+      ]
+    },
+    "/api/PerformanceGoal/all": {
+      "status": 200,
+      "ok": true,
+      "count": 13,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "title",
+        "description",
+        "goalType",
+        "goalCategory",
+        "weight",
+        "performancePeriodId",
+        "periodName",
+        "periodCode",
+        "employeeId",
+        "employeeFirstName",
+        "employeeLastName",
+        "employeeNumber",
+        "employeeFullName",
+        "organizationalUnitId",
+        "organizationalUnitName",
+        "assignedByEmployeeId",
+        "assignedByEmployeeFullName",
+        "assignedByFullName",
+        "goalStatus",
+        "targetCompletionDate",
+        "completedAt",
+        "overallProgress",
+        "kpis"
+      ]
+    },
+    "/api/EmployeePerformanceReview/all": {
+      "status": 200,
+      "ok": true,
+      "count": 15,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "employeeId",
+        "employeeFirstName",
+        "employeeLastName",
+        "employeeNumber",
+        "employeeFullName",
+        "employeeProfilePicturePath",
+        "employeeGender",
+        "employeeOrganizationalUnitName",
+        "employeePositionTitle",
+        "performancePeriodId",
+        "periodName",
+        "periodCode",
+        "scoreScale",
+        "performanceTemplateId",
+        "templateName",
+        "showResultToEmployee",
+        "periodStartDate",
+        "periodEndDate",
+        "overallScore",
+        "reviewStatus",
+        "reviewerCount",
+        "submittedReviewerCount",
+        "hasPendingSelfAssessment"
+      ]
+    },
+    "/api/Competency/all": {
+      "status": 200,
+      "ok": true,
+      "count": 4,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "description",
+        "competencyType",
+        "organizationalUnitId",
+        "organizationalUnitName",
+        "createdBy",
+        "createdDate",
+        "status",
+        "modifiedDate"
+      ]
+    },
+    "/api/Ability/all": {
+      "status": 200,
+      "ok": true,
+      "count": 87,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "description",
+        "createdBy",
+        "createdDate",
+        "status",
+        "modifiedDate"
+      ]
+    },
+    "/api/NineBoxAssessment/all": {
+      "status": 200,
+      "ok": true,
+      "count": 6,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "employeeId",
+        "employeeFullName",
+        "employeeNumber",
+        "employeeProfilePicturePath",
+        "employeePositionTitle",
+        "employeeOrganizationalUnitId",
+        "employeeOrganizationalUnitName",
+        "performancePeriodId",
+        "performancePeriodName",
+        "performanceScore",
+        "potentialScore",
+        "boxCell",
+        "notes",
+        "assessedByEmployeeId",
+        "assessedByEmployeeFullName",
+        "calculatedBoxCell",
+        "finalBoxCell",
+        "isManuallyMoved",
+        "isLocked",
+        "lockedAt",
+        "hasFinalizedPotential",
+        "potentialAssessmentId",
+        "employeePerformanceReviewId"
+      ]
+    },
+    "/api/PerformanceCalibration/all": {
+      "status": 200,
+      "ok": true,
+      "count": 1,
+      "err": null,
+      "sampleKeys": [
+        "id",
+        "performancePeriodId",
+        "periodName",
+        "periodCode",
+        "organizationalUnitId",
+        "organizationalUnitName",
+        "sessionDate",
+        "facilitatorEmployeeId",
+        "facilitatorFullName",
+        "facilitatorProfilePicturePath",
+        "calibrationStatus",
+        "notes",
+        "finalizedAt",
+        "adjustmentsCount",
+        "createdBy",
+        "createdDate",
+        "status",
+        "modifiedDate"
+      ]
+    },
+    "/api/Pip/by-period/00000000-0000-0000-0000-000000000000": {
+      "status": 404,
+      "ok": false,
+      "count": 0,
+      "err": "404",
+      "sampleKeys": []
+    }
+  },
+  "units": [
+    {
+      "id": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "name": "D1-Tech",
+      "parentId": null
+    },
+    {
+      "id": "98f66a5c-94bc-49bd-9d81-10eeddf3e689",
+      "name": "Test Depertmanı",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "cf409828-b393-4334-820e-0cb0556c9203",
+      "name": "Yazılım Departmanı",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "6e473120-9b10-48d1-81df-08b4f798e4dd",
+      "name": "İnsan Kaynakları",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "47a5a8eb-0a19-443c-938b-729af8daae13",
+      "name": "Finans ve Muhasebe",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "0655650c-a08e-4589-add9-d1fd286e84d7",
+      "name": "Satış ve Pazarlama",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "a0670870-911b-468c-8ab9-63b85e40e1cf",
+      "name": "Operasyon",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "3d8969bf-5569-4b79-b9a0-59e81b3dbe1d",
+      "name": "Ürün Yönetimi",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "793b0158-d558-4e86-8ed6-b29ef49f3579",
+      "name": "Bordro ve Özlük",
+      "parentId": "6e473120-9b10-48d1-81df-08b4f798e4dd"
+    },
+    {
+      "id": "90256ef1-b394-4950-a3cf-9eeb11146921",
+      "name": "Eğitim ve Gelişim",
+      "parentId": "6e473120-9b10-48d1-81df-08b4f798e4dd"
+    },
+    {
+      "id": "27c9e0fb-d9ed-488f-9610-8e443650f752",
+      "name": "Muhasebe",
+      "parentId": "47a5a8eb-0a19-443c-938b-729af8daae13"
+    },
+    {
+      "id": "52d27ecd-01b4-4a6e-ad70-77deba46c7b6",
+      "name": "Satınalma",
+      "parentId": "47a5a8eb-0a19-443c-938b-729af8daae13"
+    },
+    {
+      "id": "3d72c12d-b0f2-45f4-bbad-a8079de9a6de",
+      "name": "Satış",
+      "parentId": "0655650c-a08e-4589-add9-d1fd286e84d7"
+    },
+    {
+      "id": "f5c15fde-481d-4679-9608-611f359f0528",
+      "name": "Pazarlama",
+      "parentId": "0655650c-a08e-4589-add9-d1fd286e84d7"
+    },
+    {
+      "id": "42e070bd-e3d7-4fb6-bc7f-8bfd86b3645a",
+      "name": "Kurumsal İletişim",
+      "parentId": "f5c15fde-481d-4679-9608-611f359f0528"
+    },
+    {
+      "id": "7c84eabe-506e-418b-b3fd-ae05f758979a",
+      "name": "İş Geliştirme",
+      "parentId": "3d72c12d-b0f2-45f4-bbad-a8079de9a6de"
+    },
+    {
+      "id": "a97fd598-2198-4a99-8637-e52414e032be",
+      "name": "Müşteri Destek",
+      "parentId": "a0670870-911b-468c-8ab9-63b85e40e1cf"
+    },
+    {
+      "id": "fb95d2bf-1428-46b3-aea8-01391e8d8c1a",
+      "name": "İdari İşler",
+      "parentId": "a0670870-911b-468c-8ab9-63b85e40e1cf"
+    },
+    {
+      "id": "f9d02fd3-75d1-4f9c-8b62-c3ae91b59820",
+      "name": "Backend Geliştirme",
+      "parentId": "cf409828-b393-4334-820e-0cb0556c9203"
+    },
+    {
+      "id": "5b726610-6a3a-4223-abbb-b6eb6db1546d",
+      "name": "Frontend Geliştirme",
+      "parentId": "cf409828-b393-4334-820e-0cb0556c9203"
+    },
+    {
+      "id": "98166ed4-5b92-445c-9ea6-f3d175f72d02",
+      "name": "DevOps",
+      "parentId": "cf409828-b393-4334-820e-0cb0556c9203"
+    },
+    {
+      "id": "447163f2-8fae-46d0-89ab-a6108a2ea384",
+      "name": "Manuel Test",
+      "parentId": "98f66a5c-94bc-49bd-9d81-10eeddf3e689"
+    },
+    {
+      "id": "4b45bff5-7fab-43f7-b1b8-9da7b8f63abe",
+      "name": "Otomasyon Test",
+      "parentId": "98f66a5c-94bc-49bd-9d81-10eeddf3e689"
+    },
+    {
+      "id": "c358d645-00b6-4a78-b0e1-e1aad87e4df2",
+      "name": "Bilgi Teknolojileri",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "ef3f3fed-6e26-4717-b44c-95dff3568085",
+      "name": "Sistem ve Ağ Yönetimi",
+      "parentId": "c358d645-00b6-4a78-b0e1-e1aad87e4df2"
+    },
+    {
+      "id": "112514f2-ff4a-4948-a461-4ab726309aa2",
+      "name": "Yazılım Geliştirme",
+      "parentId": "c358d645-00b6-4a78-b0e1-e1aad87e4df2"
+    },
+    {
+      "id": "05e687d8-3cf9-49ca-90ff-36fd3b7a6d9f",
+      "name": "Bordro Laboratuvarı",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "537a4836-eba8-4303-9675-a1265cce3819",
+      "name": "Ana Kadro",
+      "parentId": "05e687d8-3cf9-49ca-90ff-36fd3b7a6d9f"
+    },
+    {
+      "id": "62829b31-5e96-4a75-bef5-72f4365dfb86",
+      "name": "Operasyon",
+      "parentId": "05e687d8-3cf9-49ca-90ff-36fd3b7a6d9f"
+    },
+    {
+      "id": "a3f32447-73fb-4b67-8a45-535cd92393ad",
+      "name": "Kenar Durumlar",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "6b3c6f68-c1b4-4891-85c4-fcda31c26541",
+      "name": "Yuvarlama",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "45edef21-6fc5-45e2-85be-03f1a330995c",
+      "name": "Takvim",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "b233a86a-4f51-4483-ab16-694b8b1c91e8",
+      "name": "Blokaj",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "39989942-58b1-4ec8-8a95-435122391aa1",
+      "name": "Faz1 Bordro A.Ş.",
+      "parentId": null
+    },
+    {
+      "id": "52cf95f4-976d-41f0-8bfb-77859103028e",
+      "name": "D1-Tech Şube",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "eb55bafc-2549-47b4-be28-682f7128d11c",
+      "name": "Tek Değişken",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "138aca5a-5d10-4f6c-b2d6-43df7b27ab07",
+      "name": "LT_Offboard",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "190c9bef-8379-47fd-b235-ea07b3e36a62",
+      "name": "LT_Offboard2",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    },
+    {
+      "id": "5b82b05e-69c5-428b-b4d5-20f67586025d",
+      "name": "Bordro Paket",
+      "parentId": "d93d6660-892d-4dcf-8fc2-36bed171017a"
+    }
+  ],
+  "periods": [
+    {
+      "id": "21539fa6-6e6c-4b0d-848c-7c26ca3a247d",
+      "name": "2026 2. Yarı Performans Dönemi",
+      "code": "PERF-2026-H2",
+      "status": 5,
+      "ou": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "type": 1
+    },
+    {
+      "id": "f1b6095b-34ef-49c6-a1de-dd2bc9311a17",
+      "name": "QA-PERF-2026 H2",
+      "code": "QA-PERF-2026",
+      "status": 5,
+      "ou": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "type": 1
+    }
+  ],
+  "templates": [
+    {
+      "id": "6fec412f-8e06-498c-ae19-5531e7938e37",
+      "name": "QA-PERF Şablon",
+      "ou": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "model": 1
+    }
+  ],
+  "perfAbilities": [
+    {
+      "id": "12e994f0-107e-41fb-a379-c6010c9148e6",
+      "name": "ViewPerformanceManagement"
+    },
+    {
+      "id": "891c1d92-85b9-4e89-9954-0529117c695a",
+      "name": "ViewMyPerformances"
+    },
+    {
+      "id": "c98a2edb-0c2c-4806-85bc-4fb391eece4b",
+      "name": "ViewPerformanceImprovementPlans"
+    },
+    {
+      "id": "73925e7a-8581-469d-8166-0884923fb8f5",
+      "name": "ViewEmployeePerformance"
+    }
+  ],
+  "root": {
+    "id": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+    "name": "D1-Tech",
+    "parentId": null
+  },
+  "rootRoles": [
+    {
+      "id": "5b68e402-fcbf-4fc7-8973-7c00c57f3078",
+      "name": "Yönetici",
+      "abilities": 44
+    },
+    {
+      "id": "9dfe3936-88cc-45ae-a6e7-60df63e4e8a7",
+      "name": "İK",
+      "abilities": 80
+    },
+    {
+      "id": "d1e55d45-a3b0-4337-b7f8-d28aa8027719",
+      "name": "Bilgi İşlem",
+      "abilities": 24
+    },
+    {
+      "id": "f3fde437-9429-445b-9e84-5e74df1278f4",
+      "name": "Çalışan",
+      "abilities": 20
+    }
+  ],
+  "rootSetting": {
+    "status": 200,
+    "ok": true,
+    "body": {
+      "id": "5ce706b2-698f-4bd2-860b-0eecf4b19cea",
+      "organizationalUnitId": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "organizationalUnit": {
+        "id": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+        "name": "D1-Tech",
+        "parentId": null,
+        "parentName": null,
+        "location": null,
+        "createdBy": "System",
+        "createdDate": "2026-08-18T20:04:44.031716+00:00",
+        "status": 1,
+        "modifiedDate": "2026-08-18T20:14:22.853673+00:00"
+      },
+      "defaultKpiCategoryWeight": 40,
+      "defaultCompetencyCategoryWeight": 30,
+      "defaultManagerLayerWeight": 20,
+      "defaultBehaviorCategoryWeight": 10,
+      "minScoreRequireComment": null,
+      "showResultToEmployee": true,
+      "appealWindowDays": 7,
+      "requireBlindEvaluation": true,
+      "peerEvaluatorMinCount": 2,
+      "peerEvaluatorMaxCount": 5,
+      "anonymousPeerEvaluation": true,
+      "isPolyvalenceEnabled": false,
+      "competencyScaleMax": 5,
+      "pipVisibleToEmployee": false,
+      "talentActionEmailDisabled": false,
+      "talentActionReminderDaysBefore": null,
+      "createdBy": "2e33e3e3-9c4f-4318-b5c0-f1804b85a648",
+      "createdDate": "2026-08-19T00:50:39.530468+00:00",
+      "status": 1,
+      "modifiedDate": "2026-08-19T01:25:53.949061+00:00"
+    }
+  }
+}

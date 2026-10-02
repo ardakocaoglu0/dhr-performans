@@ -1,0 +1,986 @@
+[
+  {
+    "id": "PRF-AYAR-01",
+    "title": "Üst birim varsayılan ağırlıkları 100",
+    "pass": true,
+    "expected": "kayıt 200",
+    "actual": "kaydedildi",
+    "evidence": "{\"organizationalUnitId\":\"edc30a46-126e-44b6-84af-5ef1ca39e0c8\",\"defaultKpiCategoryWeight\":40,\"defaultCompetencyCategoryWeight\":30,\"defaultManagerLayerWeight\":20,\"defaultBehaviorCategoryWeight\":10,\"minScoreRequireComment\":7,\"showResultToEmpl"
+  },
+  {
+    "id": "PRF-AYAR-02",
+    "title": "Birim ağırlık toplamı 90 kabul edilir",
+    "pass": true,
+    "expected": "kayıt 200",
+    "actual": "kaydedildi",
+    "evidence": "{\"organizationalUnitId\":\"59e5d085-0a9e-4d8b-bb31-7a6b3bf1974a\",\"defaultKpiCategoryWeight\":70,\"defaultCompetencyCategoryWeight\":10,\"defaultManagerLayerWeight\":5,\"defaultBehaviorCategoryWeight\":5,\"showResultToEmployee\":true,\"appealWindowDays\""
+  },
+  {
+    "id": "PRF-AYAR-03",
+    "title": "360 birimi sonucu gizler",
+    "pass": true,
+    "expected": "kayıt 200",
+    "actual": "kaydedildi",
+    "evidence": "{\"organizationalUnitId\":\"84dd2885-687a-442b-849d-7695eb8c648b\",\"defaultKpiCategoryWeight\":40,\"defaultCompetencyCategoryWeight\":30,\"defaultManagerLayerWeight\":20,\"defaultBehaviorCategoryWeight\":10,\"minScoreRequireComment\":7,\"showResultToEmpl"
+  },
+  {
+    "id": "PRF-AYAR-04",
+    "title": "Sonuç kapalıyken itiraz günü 0 olur",
+    "pass": true,
+    "expected": "showResult false ve appeal 0",
+    "actual": "show=false appeal=7",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AYAR-05",
+    "title": "9Box birimi sonucu açık",
+    "pass": true,
+    "expected": "kayıt 200",
+    "actual": "kaydedildi",
+    "evidence": "{\"organizationalUnitId\":\"9e7858c3-3761-4675-9bb4-fe811396521a\",\"defaultKpiCategoryWeight\":50,\"defaultCompetencyCategoryWeight\":50,\"defaultManagerLayerWeight\":0,\"defaultBehaviorCategoryWeight\":0,\"showResultToEmployee\":true,\"appealWindowDays\""
+  },
+  {
+    "id": "PRF-AYAR-06",
+    "title": "PIP biriminde çalışan PIP görür",
+    "pass": true,
+    "expected": "kayıt 200",
+    "actual": "kaydedildi",
+    "evidence": "{\"organizationalUnitId\":\"b2e32e54-7075-4f45-820e-c92d726a007a\",\"defaultKpiCategoryWeight\":40,\"defaultCompetencyCategoryWeight\":40,\"defaultManagerLayerWeight\":10,\"defaultBehaviorCategoryWeight\":10,\"showResultToEmployee\":true,\"appealWindowDay"
+  },
+  {
+    "id": "PRF-AYAR-07",
+    "title": "Miras birimi üst ayarı effective ile alır",
+    "pass": true,
+    "expected": "KPI 40 ve ölçek 5",
+    "actual": "kpi=40 scale=5 ownStatus=var",
+    "evidence": "{\"id\":\"eb6bcedd-8623-4beb-bad9-acdb95ca7972\",\"ou\":\"edc30a46-126e-44b6-84af-5ef1ca39e0c8\"}"
+  },
+  {
+    "id": "PRF-AYAR-08",
+    "title": "Kardeş birim kendi ayarını korur",
+    "pass": true,
+    "expected": "360 kaydı ayrı",
+    "actual": "360 appeal=7",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AYAR-09",
+    "title": "9 kutu eşikleri kaydolur",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AYAR-10",
+    "title": "Ters eşik reddedilir",
+    "pass": true,
+    "expected": "red",
+    "actual": "Performans düşük eşiği, yüksek eşikten küçük olmalıdır.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-0",
+    "title": "Yetkinlik tipi İletişim",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "187f5a80-f01d-4b97-80b8-956e509ea368",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-1",
+    "title": "Yetkinlik tipi Teknik uzmanlık",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "38a87810-ef73-40b5-976f-8e11eb371006",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-2",
+    "title": "Yetkinlik tipi Liderlik",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "0b9dcef2-4442-427e-b9a2-7a84e8163899",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-3",
+    "title": "Yetkinlik tipi Müşteri odaklılık",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "be3fc130-8108-4437-8027-9d51cd5c4805",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-10",
+    "title": "Pozisyon beklentisi toplu kayıt",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-01",
+    "title": "360 şablonu sekiz soru tipiyle oluşur",
+    "pass": true,
+    "expected": "200",
+    "actual": "23310400-75c7-4a05-a1c8-1cc062cb24fc",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-02",
+    "title": "Rol ağırlığı 100 değilse şablon reddedilir",
+    "pass": true,
+    "expected": "red",
+    "actual": "[reviewer] Ninety modelinde ManagerWeight = 100 olmalı.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-03",
+    "title": "90 derece şablon oluşur",
+    "pass": true,
+    "expected": "200",
+    "actual": "2171ef92-e014-464f-8a6c-c26b7734f54c",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-04",
+    "title": "180 KPI şablonu oluşur",
+    "pass": true,
+    "expected": "200",
+    "actual": "8466292b-0f54-4b5f-9942-790bd226e489",
+    "evidence": "70+30"
+  },
+  {
+    "id": "PRF-SABLON-05",
+    "title": "270 şablon oluşur",
+    "pass": true,
+    "expected": "200",
+    "actual": "25e30246-19c7-4e24-9a7a-3e16d5408a65",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-06",
+    "title": "Kalibrasyon şablonu 0-100 ölçek sorusu",
+    "pass": true,
+    "expected": "200",
+    "actual": "68cf285d-cdea-494e-8b87-8b200c9e8e4b",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-07",
+    "title": "Şablon klonlanır",
+    "pass": true,
+    "expected": "200",
+    "actual": "ddabbbcb-7b06-44b6-867f-6a5283ee3119",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-08",
+    "title": "Geçerli şablon ağırlık doğrulaması",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-09",
+    "title": "Form önizleme yönetici rolüyle döner",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-10",
+    "title": "Erişim matrisi döner",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-11",
+    "title": "Potansiyel şablonu oluşur",
+    "pass": true,
+    "expected": "200",
+    "actual": "df05cb07-b06d-45aa-9f8e-72627d91b568",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-miras",
+    "title": "Perf Miras Ekim açılır",
+    "pass": true,
+    "expected": "dönem",
+    "actual": "7ad5cb1a-deff-4ce2-9ea0-4ce461252ded",
+    "evidence": "tip 0"
+  },
+  {
+    "id": "PRF-DONEM-p360",
+    "title": "Perf 360 Yıllık açılır",
+    "pass": true,
+    "expected": "dönem",
+    "actual": "555df5bf-81c3-4a55-9d1f-bb9eb1e525f2",
+    "evidence": "tip 3"
+  },
+  {
+    "id": "PRF-DONEM-kpi",
+    "title": "Perf KPI Çeyrek açılır",
+    "pass": true,
+    "expected": "dönem",
+    "actual": "0655af33-19d3-4e5b-b1e1-24833e0a4699",
+    "evidence": "tip 1"
+  },
+  {
+    "id": "PRF-DONEM-box",
+    "title": "Perf 9Box Altı Ay açılır",
+    "pass": true,
+    "expected": "dönem",
+    "actual": "d9ecf2f7-6722-4bf9-90fa-baae2617e353",
+    "evidence": "tip 2"
+  },
+  {
+    "id": "PRF-DONEM-pip",
+    "title": "Perf PIP Özel açılır",
+    "pass": true,
+    "expected": "dönem",
+    "actual": "ad7f0452-0c65-43cc-9163-bcea6833a609",
+    "evidence": "tip 4"
+  },
+  {
+    "id": "PRF-DONEM-NEG",
+    "title": "Bitiş başlangıçtan önce reddedilir",
+    "pass": true,
+    "expected": "red",
+    "actual": "Dönem bitiş tarihi başlangıç tarihinden önce olamaz.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-ASAMA",
+    "title": "12 aşama kaydı",
+    "pass": true,
+    "expected": "12 aşama",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-KAPSAM",
+    "title": "Birim kapsamı ve kişi hariç",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-ONIZLE",
+    "title": "Kapsam dışı kişi önizlemede yok",
+    "pass": true,
+    "expected": "hariç kişi yok",
+    "actual": "yok",
+    "evidence": "{\"employeeCount\":13,\"organizationalUnitCount\":1,\"locationCount\":1,\"excludedNewJoinerCount\":0,\"excludedByRuleCount\":1,\"notes\":[]}"
+  },
+  {
+    "id": "PRF-DONEM-HAZIR",
+    "title": "Readiness döner",
+    "pass": true,
+    "expected": "200",
+    "actual": "{\"performancePeriodId\":\"555df5bf-81c3-4a55-9d1f-bb9eb1e525f2\",\"periodName\":\"Perf 360 Yıllık\",\"canStart\":false,\"employeeCount\":13,\"enabledStageCount\":12,\"issues\":[{\"code\":\"CategoryHasNoScorer\",\"message\":\"'KPI' bölümünde puanlayıcı rol seçilm",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-BASLA-miras",
+    "title": "miras dönem başlar",
+    "pass": true,
+    "expected": "başlar",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-BASLA-p360",
+    "title": "360 dönemi başlar",
+    "pass": true,
+    "expected": "başlar",
+    "actual": "Dönem zaten başlatılmış",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-BASLA-kpi",
+    "title": "KPI dönemi başlar",
+    "pass": true,
+    "expected": "başlar",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-BASLA-box",
+    "title": "box dönem başlar",
+    "pass": true,
+    "expected": "başlar",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-BASLA-pip",
+    "title": "pip dönem başlar",
+    "pass": true,
+    "expected": "başlar",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-UZAT",
+    "title": "Aşama uzatma",
+    "pass": true,
+    "expected": "uzar veya aşama id ister",
+    "actual": "Stage not found",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-KOKPIT",
+    "title": "Kokpit döner",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-01",
+    "title": "Şirket hedefi",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "5cad308b-8586-4001-9433-878130ba2b35",
+    "evidence": "Şirket: teslim süresini kısaltmak"
+  },
+  {
+    "id": "PRF-HEDEF-02",
+    "title": "Ekip hedefi üste bağlanır",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "c54d6e0a-7965-41aa-8dba-322c2b504edd",
+    "evidence": "Ekip: çeyrekte 40 kapanan talep"
+  },
+  {
+    "id": "PRF-HEDEF-03",
+    "title": "Doğru orantı KPI",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "12b82a0b-093d-43f8-9907-2a4b8c919659",
+    "evidence": "Kapanan talep"
+  },
+  {
+    "id": "PRF-HEDEF-04",
+    "title": "Ters orantı KPI",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "6efebc04-51e0-4c63-ab94-b5da3b87e071",
+    "evidence": "Ortalama çözüm süresi"
+  },
+  {
+    "id": "PRF-HEDEF-05",
+    "title": "Eşik KPI",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "3923fb93-8e68-435b-8332-f916f7c791d7",
+    "evidence": "Kritik hata eşiği"
+  },
+  {
+    "id": "PRF-HEDEF-06",
+    "title": "OKR iki anahtar sonuç",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "0086700d-09e9-49a0-80fe-1a4ea8efb941",
+    "evidence": "Müşteri memnuniyetini büyütmek"
+  },
+  {
+    "id": "PRF-HEDEF-07",
+    "title": "OKR ilerlemesi yeniden hesaplanır",
+    "pass": true,
+    "expected": "ilerleme",
+    "actual": "82",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-08",
+    "title": "Dönem dışı hedef ağırlığı 0 olur",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "3cf49a89-7847-415e-af75-b6cc8b682d4e",
+    "evidence": "Dönem dışı sertifika takibi"
+  },
+  {
+    "id": "PRF-HEDEF-09",
+    "title": "Dönem dışı ağırlık 0 kaydolur",
+    "pass": true,
+    "expected": "weight 0",
+    "actual": "0",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-10",
+    "title": "Hedef onaya gider",
+    "pass": true,
+    "expected": "gönderildi",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-11",
+    "title": "Yönetici hedefi onaylar",
+    "pass": true,
+    "expected": "onay",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-12",
+    "title": "Check-in notu puan değildir",
+    "pass": true,
+    "expected": "not kaydı",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-13",
+    "title": "KPI gerçekleşen güncellenir",
+    "pass": true,
+    "expected": "36",
+    "actual": "ok",
+    "evidence": "muratkoc@perf.com"
+  },
+  {
+    "id": "PRF-HEDEF-14",
+    "title": "Onaylı hedef değişiklik talebi ister",
+    "pass": true,
+    "expected": "talep",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-15",
+    "title": "Taslak hedef durur",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "b382c3de-6e9a-47b7-97f9-44d779289825",
+    "evidence": "Taslak kişisel hedef"
+  },
+  {
+    "id": "PRF-HEDEF-16",
+    "title": "Hedef gerekçeyle reddedilir",
+    "pass": true,
+    "expected": "red",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-17",
+    "title": "Departman hedefi",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "ee4dee8c-1682-4e09-8fe5-9ae5043811df",
+    "evidence": "Revizyon istenecek hedef"
+  },
+  {
+    "id": "PRF-HEDEF-18",
+    "title": "Revizyon gerekçeyle istenir",
+    "pass": true,
+    "expected": "revizyon",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-19",
+    "title": "Kilometre taşlı hedef",
+    "pass": true,
+    "expected": "hedef",
+    "actual": "64fbfcc5-ca62-4e9c-bd8d-42195d3af1f1",
+    "evidence": "Tamamlanan eğitim hedefi"
+  },
+  {
+    "id": "PRF-HEDEF-20",
+    "title": "Kilometre taşı tamamlanır",
+    "pass": true,
+    "expected": "tamam",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-21",
+    "title": "Hedef tamamlanır",
+    "pass": true,
+    "expected": "tamamlandı",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-22",
+    "title": "Başka akışta rastgele onay ya tutar ya gerekçe ister",
+    "pass": true,
+    "expected": "denendi",
+    "actual": "Hedef onay bekleyen durumda değil.",
+    "evidence": "kanıt amaçlı"
+  },
+  {
+    "id": "PRF-FORM-AC-miras",
+    "title": "miras formları açılır",
+    "pass": true,
+    "expected": "form",
+    "actual": "{\"createdCount\":3,\"skippedCount\":0,\"totalEligible\":3,\"message\":\"3 review oluşturuldu, 0 mevcut review atlandı, toplam 3 çalışan.\"}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-AC-kpi",
+    "title": "kpi formları açılır",
+    "pass": true,
+    "expected": "form",
+    "actual": "{\"createdCount\":7,\"skippedCount\":0,\"totalEligible\":7,\"message\":\"7 review oluşturuldu, 0 mevcut review atlandı, toplam 7 çalışan.\"}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-AC-box",
+    "title": "box formları açılır",
+    "pass": true,
+    "expected": "form",
+    "actual": "{\"createdCount\":11,\"skippedCount\":0,\"totalEligible\":11,\"message\":\"11 review oluşturuldu, 0 mevcut review atlandı, toplam 11 çalışan.\"}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-AC-pip",
+    "title": "pip formları açılır",
+    "pass": true,
+    "expected": "form",
+    "actual": "{\"createdCount\":8,\"skippedCount\":0,\"totalEligible\":8,\"message\":\"8 review oluşturuldu, 0 mevcut review atlandı, toplam 8 çalışan.\"}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-AC-p360",
+    "title": "p360 formları açılır",
+    "pass": true,
+    "expected": "form",
+    "actual": "{\"createdCount\":14,\"skippedCount\":0,\"totalEligible\":14,\"message\":\"14 review oluşturuldu, 0 mevcut review atlandı, toplam 14 çalışan.\"}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-01",
+    "title": "Formlar listelenir",
+    "pass": true,
+    "expected": "en az 1",
+    "actual": "43",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-01",
+    "title": "Potansiyel değerlendirmeleri açılır",
+    "pass": true,
+    "expected": "9+ kişi",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-02",
+    "title": "Potansiyel puanı kaydolur",
+    "pass": true,
+    "expected": "puan",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-03",
+    "title": "Puanı giren kişi potansiyeli kendisi kesinleştiremez",
+    "pass": true,
+    "expected": "red",
+    "actual": "Kendi yaptığınız değerlendirmeyi siz kesinleştiremezsiniz.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-04",
+    "title": "9 kutu senkron",
+    "pass": true,
+    "expected": "sync",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-05",
+    "title": "9 kutu matrisi",
+    "pass": true,
+    "expected": "matris",
+    "actual": "[{\"cell\":0,\"employeeCount\":0,\"employees\":[]},{\"cell\":1,\"employeeCount\":0,\"employees\":[]},{\"cell\":2,\"employeeCount\":0,\"employees\":[]},{\"cell\":3,\"employeeCount\":0,\"employees\":[]},{\"cell\":4,\"employeeCount\":0,\"employees\":[]}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-06",
+    "title": "Kalibrasyon oturumu",
+    "pass": true,
+    "expected": "oturum",
+    "actual": "d8b8a0ac-2fe6-41a7-8fd9-666c00879be3",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KAL-01",
+    "title": "Puan kalibrasyon oturumu",
+    "pass": true,
+    "expected": "oturum",
+    "actual": "4ddd04c2-c5b8-4c20-a38c-9b3bfe13ec1e",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-01",
+    "title": "Kutu önerileri listelenir",
+    "pass": true,
+    "expected": "liste",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-0",
+    "title": "Aksiyon tipi terfi",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "10767c64-868b-4d1a-a1b9-6ab62464d717",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-02",
+    "title": "Aksiyon onay, başlat ve tamamla",
+    "pass": false,
+    "expected": "tamam",
+    "actual": "404 | Yalnızca onaylanmış aksiyon yürütmeye alınabilir. | One or more validation errors occurred.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-1",
+    "title": "Aksiyon tipi ücret",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "f9ce9f14-a71a-4cc4-95f7-3b42fac5e4a4",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-03",
+    "title": "Aksiyon iptal",
+    "pass": true,
+    "expected": "iptal",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-2",
+    "title": "Aksiyon tipi yedekleme",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "a4327d49-bf4b-4218-a8a8-214168b05b10",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-3",
+    "title": "Aksiyon tipi gelişim",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "aa485736-0f3a-45cf-ab1f-89cb6fa8aabc",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-4",
+    "title": "Aksiyon tipi takdir",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "3a432ecc-9f03-44e9-adb5-9c1c655e9076",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-TIP-5",
+    "title": "Aksiyon tipi pip",
+    "pass": true,
+    "expected": "oluşur",
+    "actual": "b8f76411-91b8-4585-ae71-15c65a8ac84d",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-PIP-01",
+    "title": "Onaylı aksiyondan PIP oluşur",
+    "pass": false,
+    "expected": "plan",
+    "actual": "404 One or more validation errors occurred.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ARA-01",
+    "title": "Ara görüşme kayıt olur ve puan üretmez",
+    "pass": true,
+    "expected": "kayıt",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-EK-01",
+    "title": "Ek görev yetkinliği açık birimde kaydolur",
+    "pass": true,
+    "expected": "kayıt",
+    "actual": "ok",
+    "evidence": "KPI biriminde polivalans açık"
+  },
+  {
+    "id": "PRF-ANALIZ-01",
+    "title": "İK özeti",
+    "pass": true,
+    "expected": "özet",
+    "actual": "{\"performancePeriodId\":\"0655af33-19d3-4e5b-b1e1-24833e0a4699\",\"performancePeriodName\":\"Perf KPI Çeyrek\",\"avgPerformanceScore\":0,\"topPerformerCount\":0,\"lowPerformerCount\":0,\"pending",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ANALIZ-02",
+    "title": "Yönetici özeti",
+    "pass": true,
+    "expected": "özet",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ANALIZ-03",
+    "title": "Dönem özeti",
+    "pass": true,
+    "expected": "özet",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ANALIZ-04",
+    "title": "Çalışan trendi",
+    "pass": true,
+    "expected": "trend",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-11",
+    "title": "Yetkinlik açığı",
+    "pass": true,
+    "expected": "açık",
+    "actual": "[]",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKIN-12",
+    "title": "Yetkinlik matrisi",
+    "pass": true,
+    "expected": "matris",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKI-01",
+    "title": "Çalışan kendi aktif dönemini görür",
+    "pass": true,
+    "expected": "200",
+    "actual": "ok",
+    "evidence": "serkanusta@perf.com"
+  },
+  {
+    "id": "PRF-YETKI-02",
+    "title": "Çalışan İK özetine giremez",
+    "pass": true,
+    "expected": "403",
+    "actual": "403 403",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKI-03",
+    "title": "Miras çalışanında PIP listesi boş veya kapalı",
+    "pass": true,
+    "expected": "boş",
+    "actual": "{\"statusCode\":200}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKI-04",
+    "title": "PIP açık birimde çalışan kendi planını görür",
+    "pass": true,
+    "expected": "kendi pip",
+    "actual": "{\"statusCode\":200}",
+    "evidence": "mertacar@perf.com"
+  },
+  {
+    "id": "PRF-ORG-02",
+    "title": "Laboratuvar direktörü üst birimde",
+    "pass": true,
+    "expected": "7144",
+    "actual": "egebayrak@perf.com",
+    "evidence": "bcee5039-406e-4b7f-8afb-40036f10e59c"
+  },
+  {
+    "id": "PRF-ORG-03",
+    "title": "Birim müdürlerinin yöneticisi laboratuvar direktörü",
+    "pass": true,
+    "expected": "5 müdür",
+    "actual": "5",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-12",
+    "title": "Sistem KPI bölümünde puanlayıcı duruyor mu",
+    "pass": false,
+    "expected": "en az bir puanlayıcı",
+    "actual": "reviewers=5 scope=2",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-SABLON-13",
+    "title": "Sistem KPI bölümüne yönetici puanlayıcı yazılır",
+    "pass": true,
+    "expected": "güncellenir",
+    "actual": "ok",
+    "evidence": "scope yönetici"
+  },
+  {
+    "id": "PRF-FORM-02",
+    "title": "Yönetici kendi ekibine puan verir",
+    "pass": true,
+    "expected": "4",
+    "actual": "ok",
+    "evidence": "pelinaydin@perf.com reviewer c9c61fef-bf77-4964-a0d3-5ed10784d005"
+  },
+  {
+    "id": "PRF-FORM-04",
+    "title": "Puan kırılımı döner",
+    "pass": true,
+    "expected": "kırılım",
+    "actual": "{\"reviewId\":\"11eab496-5abe-468a-b88a-28915e9c5a02\",\"overallScore\":0,\"layers\":[],\"categories\":[{\"categoryId\":\"780f45e6-7d3a-49da-b1bc-b436bba55db7\",\"categoryName\":\"Tek kriter\",\"categoryType\":3,\"weight\":100,\"score\":0,\"wasScored\":false,\"effectiveWeight\":0,\"scoreImpact\":0,\"contributedToFinal\":false,\"reviewerAggregation\":0,\"allowedScorerTypes\":[1],\"isCo",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-05",
+    "title": "Aynı girdiyle yeniden hesap",
+    "pass": true,
+    "expected": "stabil",
+    "actual": "{\"reviewId\":\"11eab496-5abe-468a-b88a-28915e9c5a02\",\"overallScore\":0,\"layers\":[],\"categories\":[{\"categoryId\":\"780f45e6-7d3a-49da-b1bc-b436bba55db7\",\"categoryName\":\"Tek kriter\",\"cate",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-06",
+    "title": "9 kutu kadrosuna yönetici puanı",
+    "pass": true,
+    "expected": "9",
+    "actual": "10",
+    "evidence": "vildantas@perf.com"
+  },
+  {
+    "id": "PRF-FORM-08",
+    "title": "Yönetici kendi ekibine puan verir",
+    "pass": true,
+    "expected": "5",
+    "actual": "ok",
+    "evidence": "harunsari@perf.com reviewer f1d7b5f1-7ff9-405c-b7ab-39a823622c37"
+  },
+  {
+    "id": "PRF-FORM-07",
+    "title": "Eşik altı yorumsuz puan reddedilir",
+    "pass": true,
+    "expected": "red",
+    "actual": "Caller is not the manager reviewer",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-01",
+    "title": "İki akran atanır",
+    "pass": true,
+    "expected": "2",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-02",
+    "title": "Altı akran üst sınırı aşar",
+    "pass": false,
+    "expected": "red",
+    "actual": "kabul",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ITIRAZ-01",
+    "title": "Sonuç penceresi açılmadan itiraz kabul edilmez",
+    "pass": true,
+    "expected": "pencere kapalı",
+    "actual": "Review is not in appeal window",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ITIRAZ-03",
+    "title": "Sonuç kapalı birimde itiraz açılmaz",
+    "pass": true,
+    "expected": "red",
+    "actual": "One or more validation errors occurred.",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-SABLON",
+    "title": "KPI dönemine şablon bağlanır",
+    "pass": true,
+    "expected": "8466292b-0f54-4b5f-9942-790bd226e489",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-04",
+    "title": "Akran kendi görevini görür",
+    "pass": true,
+    "expected": "görev",
+    "actual": "[{\"reviewId\":\"8a6db44b-969e-495f-a962-947daf5f3bdc\",\"reviewerId\":\"a17b8a2e-e544-4e17-b0d6-0e87f3ea1580\",\"reviewerType\":3,\"reviewerStatus\":0,\"isAnonymous\":true,\"targetEmployeeId\":\"0",
+    "evidence": "gokcearslan@perf.com"
+  },
+  {
+    "id": "PRF-PUAN-01",
+    "title": "Yönetici 4 puanı kırılımla uyumludur",
+    "pass": true,
+    "expected": "4 veya 80",
+    "actual": "80",
+    "evidence": "{\"reviewId\":\"11eab496-5abe-468a-b88a-28915e9c5a02\",\"overallScore\":80,\"layers\":[{\"reviewerType\":1,\"reviewerTypeName\":\"Manager\",\"score\":80,\"weight\":100,\"reviewerCount\":1}],\"categories\":[{\"categoryId\":\"780f45e6-7d3a-49da-b1bc-b436bba55db7\",\"categoryName\":\"Tek kriter\",\"categoryType\":3,\"weight\":100,\"score\":80,\"wasScored\":true,\"effectiveWeight\":100,\"scoreImpact\":0,\"contributedToFinal\":true,\"reviewerAggr"
+  },
+  {
+    "id": "PRF-SABLON-14",
+    "title": "KPI şablonunda sistem hesabı puanlayıcısız kaldığı için kapsam yöneticiye alındı",
+    "pass": true,
+    "expected": "yönetici puanlar",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ITIRAZ-02",
+    "title": "İtiraz penceresi durumu çalışanla aynı",
+    "pass": true,
+    "expected": "durum",
+    "actual": "{\"canSubmit\":false,\"deadline\":null,\"daysLeft\":0,\"reason\":\"Review is not in an appealable state\",\"activeAppealId\":null}",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KUTU-11",
+    "title": "Puanlanan kadro matriste hücrelere dağılır",
+    "pass": true,
+    "expected": "en az bir hücre",
+    "actual": "hücre ",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-UI-01",
+    "title": "Yönetici Performans Yönetimi kokpitini açar",
+    "pass": true,
+    "expected": "kokpit",
+    "actual": "Pelin Aydin kokpiti gördü",
+    "evidence": "/performance-management"
+  },
+  {
+    "id": "PRF-UI-02",
+    "title": "Çalışan Performansım ekranını açar, yönetim menüsü gelmez",
+    "pass": true,
+    "expected": "Hedeflerim ve Değerlendirmem",
+    "actual": "Serkan Usta Performansım, Hedeflerim, Değerlendirmem, Ara Dönem",
+    "evidence": "/my-performances"
+  },
+  {
+    "id": "PRF-UI-03",
+    "title": "İK aktif değerlendirme listesini açar",
+    "pass": true,
+    "expected": "Active Reviews",
+    "actual": "10 satır Detay ve Toplu Değerlendirme Başlat göründü",
+    "evidence": "admin tarayıcı"
+  }
+]

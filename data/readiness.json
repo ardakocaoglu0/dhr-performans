@@ -1,0 +1,132 @@
+{
+  "miras": [
+    {
+      "code": "MissingStages",
+      "blocking": true,
+      "message": "Dönem için aşama takvimi tanımlanmamış."
+    },
+    {
+      "code": "NoManagerResolved",
+      "blocking": true,
+      "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz."
+    },
+    {
+      "code": "NoApprovalFlow",
+      "blocking": false,
+      "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler."
+    }
+  ],
+  "p360": [
+    {
+      "code": "CategoryHasNoScorer",
+      "blocking": true,
+      "message": "'KPI' bölümünde puanlayıcı rol seçilmedi; şablonu düzenleyin."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "GoalSetting ve GoalApproval aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "GoalApproval ve Execution aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "Execution ve SelfAssessment aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "SelfAssessment ve ManagerReview aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "ManagerReview ve Approval aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "Approval ve Calibration aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "Calibration ve Publication aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "StageDatesOverlap",
+      "blocking": false,
+      "message": "Publication ve AppealWindow aşamalarının tarihleri çakışıyor."
+    },
+    {
+      "code": "NoManagerResolved",
+      "blocking": true,
+      "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz."
+    },
+    {
+      "code": "NoApprovalFlow",
+      "blocking": false,
+      "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler."
+    }
+  ],
+  "kpi": [
+    {
+      "code": "NoDefaultTemplate",
+      "blocking": true,
+      "message": "Döneme varsayılan değerlendirme şablonu atanmamış."
+    },
+    {
+      "code": "MissingStages",
+      "blocking": true,
+      "message": "Dönem için aşama takvimi tanımlanmamış."
+    },
+    {
+      "code": "NoManagerResolved",
+      "blocking": true,
+      "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz."
+    },
+    {
+      "code": "NoApprovalFlow",
+      "blocking": false,
+      "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler."
+    }
+  ],
+  "box": [
+    {
+      "code": "MissingStages",
+      "blocking": true,
+      "message": "Dönem için aşama takvimi tanımlanmamış."
+    },
+    {
+      "code": "NoManagerResolved",
+      "blocking": true,
+      "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz."
+    },
+    {
+      "code": "NoApprovalFlow",
+      "blocking": false,
+      "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler."
+    }
+  ],
+  "pip": [
+    {
+      "code": "MissingStages",
+      "blocking": true,
+      "message": "Dönem için aşama takvimi tanımlanmamış."
+    },
+    {
+      "code": "NoManagerResolved",
+      "blocking": true,
+      "message": "1 çalışanın pozisyonunda bağlı yönetici tanımlı değil; yönetici değerlendirmesi atanamaz."
+    },
+    {
+      "code": "NoApprovalFlow",
+      "blocking": false,
+      "message": "Dönemin biriminde performans onay akışı tanımlı değil; onaylar yalnızca yönetici adımıyla ilerler."
+    }
+  ]
+}

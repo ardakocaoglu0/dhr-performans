@@ -1,0 +1,16 @@
+[
+  {
+    "email": "serkanusta@perf.com",
+    "route": "/my-performances",
+    "url": "https://dhrtest2.d1-tech.com.tr/my-performances",
+    "hasPerf": true,
+    "snippet": "Yönetim Çalışan Yönetimi Kişisel Kontrol Panelim Bilgilerim Dokümanlarım İzinlerim Mesailerim Zimmetlerim Görevlerim Ek Mesailerim Bordrom Performansım Vardiyalarım Bilgilerim Çıkış Yap Merhaba, Serkan Usta 2 Ekim 2026 Cuma 1 Türkçe Performansım Hedeflerim Değerlendirmem Ara Döne"
+  },
+  {
+    "email": "pelinaydin@perf.com",
+    "route": "/performance-management",
+    "url": "https://dhrtest2.d1-tech.com.tr/performance-management",
+    "hasPerf": true,
+    "snippet": "Yönetim Çalışan Yönetimi Performans Yönetimi Kişisel Kontrol Panelim Bilgilerim Dokümanlarım İzinlerim Mesailerim Zimmetlerim Görevlerim Ek Mesailerim Bordrom Performansım Vardiyalarım Bilgilerim Çıkış Yap Merhaba, Pelin Aydin 2 Ekim 2026 Cuma 1 Türkçe Performans Yönetimi Kokpit "
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-02T14:49:11.300Z",
+  "deleted": [
+    {
+      "organizationalUnitId": null,
+      "status": 200,
+      "ok": true,
+      "body": {
+        "deleted": {
+          "PipCheckIns": 1,
+          "PipGoals": 1,
+          "PerformanceImprovementPlans": 1,
+          "TalentActions": 16,
+          "NineBoxAssessments": 7,
+          "PotentialCriterionScores": 10,
+          "PotentialAssessments": 15,
+          "PotentialBehaviorAnchors": 6,
+          "PotentialCriteria": 2,
+          "PotentialTemplates": 1,
+          "PerformanceCalibrationAdjustments": 1,
+          "PerformanceCalibrationSessions": 1,
+          "EmployeePerformanceAppeals": 1,
+          "EmployeePerformanceReviewApprovals": 22,
+          "PerformanceReviewScores": 52,
+          "PerformanceReviewers": 28,
+          "EmployeePerformanceReviews": 18,
+          "PerformanceGoalApprovals": 15,
+          "PerformanceGoals": 15,
+          "PerformancePeriodStages": 22,
+          "PerformancePeriodScopes": 3,
+          "PerformanceTemplateVersions": 1,
+          "PerformancePeriods": 2,
+          "PerformanceTemplateCriteria": 2,
+          "PerformanceTemplateCategoryReviewers": 4,
+          "PerformanceTemplateCategories": 2,
+          "PerformanceTemplates": 1,
+          "EmployeeLearningAssignments": 4,
+          "LearningPathItems": 3,
+          "LearningPaths": 1,
+          "LearningResourceCompetencies": 3,
+          "LearningResources": 3,
+          "SuccessorCandidates": 4,
+          "CriticalPositions": 3,
+          "EmployeeRecognitions": 5,
+          "RecognitionTypes": 2,
+          "PositionCompetencyExpectations": 60,
+          "Competencies": 4,
+          "PerformanceSettings": 2
+        },
+        "created": {},
+        "warnings": [],
+        "totalDeleted": 344,
+        "totalCreated": 0,
+        "employeeCount": 0,
+        "organizationalUnitId": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+        "organizationalUnitName": "D1-Tech",
+        "elapsedMilliseconds": 678
+      }
+    },
+    {
+      "organizationalUnitId": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "deleted": {},
+        "created": {},
+        "warnings": [],
+        "totalDeleted": 0,
+        "totalCreated": 0,
+        "employeeCount": 0,
+        "organizationalUnitId": "d93d6660-892d-4dcf-8fc2-36bed171017a",
+        "organizationalUnitName": "D1-Tech",
+        "elapsedMilliseconds": 277
+      }
+    },
+    {
+      "organizationalUnitId": "39989942-58b1-4ec8-8a95-435122391aa1",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "deleted": {},
+        "created": {},
+        "warnings": [],
+        "totalDeleted": 0,
+        "totalCreated": 0,
+        "employeeCount": 0,
+        "organizationalUnitId": "39989942-58b1-4ec8-8a95-435122391aa1",
+        "organizationalUnitName": "Faz1 Bordro A.Ş.",
+        "elapsedMilliseconds": 339
+      }
+    }
+  ],
+  "left": {
+    "/api/PerformancePeriod/all": 0,
+    "/api/PerformanceTemplate/all": 0,
+    "/api/PerformanceGoal/all": 0,
+    "/api/EmployeePerformanceReview/all": 0,
+    "/api/Competency/all": 0,
+    "/api/NineBoxAssessment/all": 0,
+    "/api/PerformanceCalibration/all": 0
+  }
+}
