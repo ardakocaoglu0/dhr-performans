@@ -66,10 +66,6 @@ const findings: Record<string, { what: string; why: string }> = {
     what: "En az 2 akran gerekirken 1 akran da kaydedildi.",
     why: "Alt sınır da uygulanmıyor.",
   },
-  "PRF-FORM-07": {
-    what: "Eşik 7 iken yorumsuz 2 puan kabul edildi.",
-    why: "Yorum zorunluluğu gönderimde durdurmuyor.",
-  },
   "PRF-KAL-05": {
     what: "Kalibrasyonda puan 55 yazıldı. Genel skor 20 kaldı.",
     why: "Düzeltme kayda geçiyor, çalışanın skoruna işlemiyor.",
@@ -82,13 +78,9 @@ const findings: Record<string, { what: string; why: string }> = {
     what: "Anonim denmesine rağmen akranın adı çalışanın cevabında var.",
     why: "Kimlik gizlenmiyor.",
   },
-  "PRF-AYAR-04": {
-    what: "Sonuç kapatılınca itiraz günü 0 olmalıydı. 7 kaldı.",
-    why: "Ayar metni ile kayıt uyuşmuyor. İtiraz butonu yine de kapalı kaldı.",
-  },
   "PRF-DONEM-YENI": {
-    what: "Yeni girenler dahil ve hariç seçenekleri aynı 14 kişiyi verdi.",
-    why: "Bayrak kapsam listesini değiştirmiyor.",
+    what: "Haziran’da giren kişinin işe giriş tarihi pozisyonda durmuyor. Bayrak açık ve kapalıyken liste yine 14 kişi.",
+    why: "Yeni giren ayrımı bu veriyle çalışmıyor.",
   },
   "PRF-KUTU-03": {
     what: "Potansiyeli yalnız puanı giren İK kaydedebiliyor. Aynı kişi kendi kaydını kesinleştiremiyor. Başka yetkililer 403 alıyor.",

@@ -25,11 +25,11 @@
   },
   {
     "id": "PRF-AYAR-04",
-    "title": "Sonuç kapalıyken itiraz günü sıfırlanır",
-    "pass": false,
-    "expected": "appeal 0",
-    "actual": "show=false appeal=7",
-    "evidence": ""
+    "title": "Sonuç kapalıyken şablon itiraz günü sıfırlanır",
+    "pass": true,
+    "expected": "şablonda 0",
+    "actual": "şablon show=false appeal=0",
+    "evidence": "birim varsayılanı 7 kalır, skora girmez"
   },
   {
     "id": "PRF-AYAR-05",
@@ -873,11 +873,11 @@
   },
   {
     "id": "PRF-FORM-07",
-    "title": "Eşik altı yorumsuz puan reddedilir",
-    "pass": false,
-    "expected": "red",
-    "actual": "kabul edildi",
-    "evidence": ""
+    "title": "Eşiğin altındaki yorumsuz puan reddedilir",
+    "pass": true,
+    "expected": "yorumsuz red, yorumlu kabul",
+    "actual": "yorumsuz: Comment is required for criterion 'İş birliği' when score < 3 / yorumlu: ok",
+    "evidence": "eşik 3"
   },
   {
     "id": "PRF-360-01",
@@ -1089,10 +1089,10 @@
   },
   {
     "id": "PRF-KAL-05",
-    "title": "Kalibrasyon puanı genel skora yazılır",
+    "title": "Kesinleşen kalibrasyon puanı genel skora yazılır",
     "pass": false,
     "expected": "55",
-    "actual": "önce 20 sonra 20",
+    "actual": "skor 20 kırılım 20 düzeltme 55",
     "evidence": ""
   },
   {
@@ -1145,10 +1145,10 @@
   },
   {
     "id": "PRF-DONEM-YENI",
-    "title": "Yeni giren bayrağı kapsam sayısını değiştirir",
+    "title": "Dönem içinde giren, bayrak kapalıyken dışarıda kalır",
     "pass": false,
-    "expected": "sayı değişir",
-    "actual": "açık 14/0 kapalı 14/0",
+    "expected": "sayı düşer",
+    "actual": "açık 14/0 kapalı 14/0 işe giriş undefined",
     "evidence": ""
   },
   {
