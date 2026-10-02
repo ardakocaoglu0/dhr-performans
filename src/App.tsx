@@ -51,20 +51,60 @@ const roleName: Record<string, string> = {
 
 const findings: Record<string, { what: string; why: string }> = {
   "PRF-SABLON-12": {
-    what: "Sistemin kendi hesapladığı KPI bölümünde beş kişi tanımlı, ama hiçbiri puan yazamıyor.",
-    why: "Dönem bu haliyle başlamıyor. Puanı yönetici verecek şekilde bölüm düzeltilince dönem açıldı.",
+    what: "Sistemin kendi hesapladığı KPI bölümünde puan yazacak kimse kalmıyor.",
+    why: "Dönem bu bölümle açılmıyor. Yönetici puanlayacak şekilde değiştirince açıldı.",
+  },
+  "PRF-KPI-SYS": {
+    what: "Aynı engel ayrı bir kasım döneminde de çıktı.",
+    why: "Sistem hesabı KPI, dönem başlatmayı durduruyor.",
   },
   "PRF-360-02": {
-    what: "Birimde en fazla 5 akran olmalı. 6 akran yine de kaydedildi.",
-    why: "Üst sınır ekranda duruyor, kayıt sırasında uygulanmıyor.",
+    what: "En fazla 5 akran yazmasına rağmen 6 akran kaydedildi.",
+    why: "Üst sınır kayıtta uygulanmıyor.",
   },
-  "PRF-AKS-02": {
-    what: "Terfi, gelişim veya takdir gibi bir aksiyon açılıyor. Onay adımı 404 dönüyor.",
-    why: "Onaylanmayan aksiyon tamamlanamıyor.",
+  "PRF-360-03": {
+    what: "En az 2 akran gerekirken 1 akran da kaydedildi.",
+    why: "Alt sınır da uygulanmıyor.",
   },
-  "PRF-PIP-01": {
-    what: "PIP, bağlı olduğu aksiyon onaylanmadan açılmıyor.",
-    why: "Onay adımı çalışmadığı için iyileştirme planı da kurulamadı.",
+  "PRF-FORM-07": {
+    what: "Eşik 7 iken yorumsuz 2 puan kabul edildi.",
+    why: "Yorum zorunluluğu gönderimde durdurmuyor.",
+  },
+  "PRF-KAL-05": {
+    what: "Kalibrasyonda puan 55 yazıldı. Genel skor 20 kaldı.",
+    why: "Düzeltme kayda geçiyor, çalışanın skoruna işlemiyor.",
+  },
+  "PRF-YETKI-05": {
+    what: "Sonuç kapalı göründüğü halde çalışanın servisi genel skoru 92,22 döndürdü.",
+    why: "Ekran gizlese de puan cevapta duruyor.",
+  },
+  "PRF-360-10": {
+    what: "Anonim denmesine rağmen akranın adı çalışanın cevabında var.",
+    why: "Kimlik gizlenmiyor.",
+  },
+  "PRF-AYAR-04": {
+    what: "Sonuç kapatılınca itiraz günü 0 olmalıydı. 7 kaldı.",
+    why: "Ayar metni ile kayıt uyuşmuyor. İtiraz butonu yine de kapalı kaldı.",
+  },
+  "PRF-DONEM-YENI": {
+    what: "Yeni girenler dahil ve hariç seçenekleri aynı 14 kişiyi verdi.",
+    why: "Bayrak kapsam listesini değiştirmiyor.",
+  },
+  "PRF-KUTU-03": {
+    what: "Potansiyeli yalnız puanı giren İK kaydedebiliyor. Aynı kişi kendi kaydını kesinleştiremiyor. Başka yetkililer 403 alıyor.",
+    why: "9 kutu bu yüzden boş kaldı. Kimse potansiyeli hem giremiyor hem de başkası adına kapatamıyor.",
+  },
+  "PRF-KUTU-11": {
+    what: "Matrisin dokuz hücresi de boş.",
+    why: "Potansiyel kesinleşmediği için kimse kutuya yerleşmedi.",
+  },
+  "PRF-360-09": {
+    what: "İK değerlendirici eklendi ama İletişim bölümü bu role puan yazdırmadı.",
+    why: "Bölümün puanlayıcı listesinde İK yok.",
+  },
+  "PRF-HEDEF-24": {
+    what: "Hedef değişiklik talebini ne yönetici ne laboratuvar direktörü karara bağlayabildi.",
+    why: "İkisi de 403 aldı. Talebi açan İK de kendi talebini kapatamıyor.",
   },
 };
 
@@ -152,7 +192,7 @@ function Summary({ passed, failed }: { passed: number; failed: Row[] }) {
         <article className="item"><b>Puan.</b> Yönetici 5 üzerinden 4 verdi. Sistem bunu 80 olarak yazdı.</article>
         <article className="item"><b>Gizlilik.</b> Sonuç çalışana kapalıysa karne de itiraz da kapalı.</article>
         <article className="item"><b>9 kutu.</b> Satır performans, sütun potansiyel. Potansiyeli bitmemiş kişi kutuya girmez.</article>
-        <article className="item"><b>PIP.</b> İyileştirme planı, aksiyon onaylanmadan açılmıyor. Onay adımı şu an 404 veriyor.</article>
+        <article className="item"><b>Açık kalanlar.</b> Akran sınırı, yorum zorunluluğu, gizli skor ve 9 kutunun kesinleşmesi ürün kuralına uymadı. Ayrıntı Bulgular sekmesinde.</article>
       </div>
     </>
   );
@@ -347,7 +387,7 @@ function Findings({ rows: failed }: { rows: Row[] }) {
   return (
     <>
       <h2>Tutmayanlar</h2>
-      <p className="lead">Dört kayıt ürünün kendi kuralına uymadı. Diğer senaryolar geçti.</p>
+      <p className="lead">{failed.length} kayıt ürünün kendi kuralına uymadı. Diğer senaryolar geçti.</p>
       <div className="grid">
         {failed.map((row) => {
           const text = findings[row.id];

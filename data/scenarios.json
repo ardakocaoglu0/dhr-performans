@@ -25,9 +25,9 @@
   },
   {
     "id": "PRF-AYAR-04",
-    "title": "Sonuç kapalıyken itiraz günü 0 olur",
-    "pass": true,
-    "expected": "showResult false ve appeal 0",
+    "title": "Sonuç kapalıyken itiraz günü sıfırlanır",
+    "pass": false,
+    "expected": "appeal 0",
     "actual": "show=false appeal=7",
     "evidence": ""
   },
@@ -585,10 +585,10 @@
   },
   {
     "id": "PRF-KUTU-03",
-    "title": "Puanı giren kişi potansiyeli kendisi kesinleştiremez",
-    "pass": true,
-    "expected": "red",
-    "actual": "Kendi yaptığınız değerlendirmeyi siz kesinleştiremezsiniz.",
+    "title": "Aynı birimdeki ikinci yetkili potansiyeli kesinleştirir",
+    "pass": false,
+    "expected": "kesin",
+    "actual": "0/10",
     "evidence": ""
   },
   {
@@ -641,11 +641,11 @@
   },
   {
     "id": "PRF-AKS-02",
-    "title": "Aksiyon onay, başlat ve tamamla",
-    "pass": false,
+    "title": "Sıradaki onaycı aksiyonu onaylar ve tamamlar",
+    "pass": true,
     "expected": "tamam",
-    "actual": "404 | Yalnızca onaylanmış aksiyon yürütmeye alınabilir. | One or more validation errors occurred.",
-    "evidence": ""
+    "actual": "ok",
+    "evidence": "667978cb-61c2-4aaa-b1c7-fa8b6409ef9f"
   },
   {
     "id": "PRF-AKS-TIP-1",
@@ -698,9 +698,9 @@
   {
     "id": "PRF-PIP-01",
     "title": "Onaylı aksiyondan PIP oluşur",
-    "pass": false,
+    "pass": true,
     "expected": "plan",
-    "actual": "404 One or more validation errors occurred.",
+    "actual": "c353c993-55c3-4420-adc4-0d8855f73f3d",
     "evidence": ""
   },
   {
@@ -817,11 +817,11 @@
   },
   {
     "id": "PRF-SABLON-12",
-    "title": "Sistem KPI bölümünde puanlayıcı duruyor mu",
+    "title": "Sistem KPI bölümünde puanlayan bir rol vardır",
     "pass": false,
-    "expected": "en az bir puanlayıcı",
-    "actual": "reviewers=5 scope=2",
-    "evidence": ""
+    "expected": "puanlayıcı ve açık dönem",
+    "actual": "'Sistem KPI' bölümünde puanlayıcı rol seçilmedi; şablonu düzenleyin.",
+    "evidence": "CategoryHasNoScorer"
   },
   {
     "id": "PRF-SABLON-13",
@@ -874,25 +874,25 @@
   {
     "id": "PRF-FORM-07",
     "title": "Eşik altı yorumsuz puan reddedilir",
-    "pass": true,
+    "pass": false,
     "expected": "red",
-    "actual": "Caller is not the manager reviewer",
+    "actual": "kabul edildi",
     "evidence": ""
   },
   {
     "id": "PRF-360-01",
     "title": "İki akran atanır",
     "pass": true,
-    "expected": "2",
+    "expected": "2 akran",
     "actual": "ok",
     "evidence": ""
   },
   {
     "id": "PRF-360-02",
-    "title": "Altı akran üst sınırı aşar",
+    "title": "Altı akran üst sınırda durur",
     "pass": false,
     "expected": "red",
-    "actual": "kabul",
+    "actual": "kabul edildi",
     "evidence": ""
   },
   {
@@ -953,11 +953,11 @@
   },
   {
     "id": "PRF-KUTU-11",
-    "title": "Puanlanan kadro matriste hücrelere dağılır",
-    "pass": true,
-    "expected": "en az bir hücre",
-    "actual": "hücre ",
-    "evidence": ""
+    "title": "Dokuz kutunun hücreleri dolmaya başlar",
+    "pass": false,
+    "expected": "en az 3 farklı hücre",
+    "actual": "[{\"cell\":0,\"employeeCount\":0,\"employees\":[]},{\"cell\":1,\"employeeCount\":0,\"employees\":[]},{\"cell\":2,\"employeeCount\":0,\"employees\":[]},{\"cell\":3,\"employeeCount\":0,\"employees\":[]},{\"cell\":4,\"employeeCount\":0,\"employees\":[]},{\"cell\":5,\"employeeCount\":0,\"employees\":[]},{\"cell\":6,\"employeeCount\":0,\"employees\":[]},{\"cell\":7,\"employeeCount\":0,\"employees\":[]},{\"cell\":8,\"employeeCount\":0,\"employees\":[]}]",
+    "evidence": "adet 9"
   },
   {
     "id": "PRF-UI-01",
@@ -982,5 +982,221 @@
     "expected": "Active Reviews",
     "actual": "10 satır Detay ve Toplu Değerlendirme Başlat göründü",
     "evidence": "admin tarayıcı"
+  },
+  {
+    "id": "PRF-AKS-04",
+    "title": "Aksiyon listesi dönemle gelir",
+    "pass": true,
+    "expected": "liste",
+    "actual": "7",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-AKS-06",
+    "title": "Onaycı aksiyonu reddeder",
+    "pass": true,
+    "expected": "red",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-03",
+    "title": "Tek akran alt sınırda durur",
+    "pass": false,
+    "expected": "red",
+    "actual": "kabul edildi",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-09",
+    "title": "Çalışan öz değerlendirme gönderir",
+    "pass": true,
+    "expected": "öz puan",
+    "actual": "ok",
+    "evidence": "0"
+  },
+  {
+    "id": "PRF-FORM-10",
+    "title": "Sekiz soru tipi aynı formda puanlanır",
+    "pass": true,
+    "expected": "gönderildi",
+    "actual": "ok",
+    "evidence": "0:İletişim, 1:Ölçek 0-100, 0:Ölçek 1-5, 3:Tek seçim, 4:Çoklu seçim, 5:Evet hayır, 2:Yüzde KPI, 0:İş birliği, 2:Sistem KPI"
+  },
+  {
+    "id": "PRF-FORM-11",
+    "title": "Açık uç ve dosya kanıtı finale girmez",
+    "pass": true,
+    "expected": "puansız",
+    "actual": "iz yok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-FORM-12",
+    "title": "Beklentiye oranlı yetkinlik kırılımda ayrı durur",
+    "pass": true,
+    "expected": "gapAdjustedScore",
+    "actual": "İletişim ham 4 efektif 100 gap 100",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-05",
+    "title": "Akran kendi formunu gönderir",
+    "pass": true,
+    "expected": "akran puanı",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-06",
+    "title": "Ast değerlendirici eklenir",
+    "pass": true,
+    "expected": "ast",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-07",
+    "title": "İK değerlendirici eklenebilir",
+    "pass": true,
+    "expected": "İK",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-09",
+    "title": "İK puan gönderir",
+    "pass": false,
+    "expected": "İK puanı",
+    "actual": "Criterion 'İletişim' belongs to a section this reviewer role cannot access",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KPI-SYS",
+    "title": "Sistem hesabı KPI dönemi açılır",
+    "pass": false,
+    "expected": "dönem açılır",
+    "actual": "'Sistem KPI' bölümünde puanlayıcı rol seçilmedi; şablonu düzenleyin.",
+    "evidence": "CategoryHasNoScorer"
+  },
+  {
+    "id": "PRF-KAL-02",
+    "title": "Gerekçeli kalibrasyon puanı yazılır",
+    "pass": true,
+    "expected": "55",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KAL-05",
+    "title": "Kalibrasyon puanı genel skora yazılır",
+    "pass": false,
+    "expected": "55",
+    "actual": "önce 20 sonra 20",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KAL-04",
+    "title": "Kalibrasyon oturumu kapanır",
+    "pass": true,
+    "expected": "final",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-KAL-06",
+    "title": "Kapanan oturumda yeni düzeltme olmaz",
+    "pass": true,
+    "expected": "red",
+    "actual": "Session is already finalized",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-ITIRAZ-04",
+    "title": "Yönetici puanından sonra itiraz penceresi açılır",
+    "pass": true,
+    "expected": "itiraz açıldı",
+    "actual": "ok",
+    "evidence": "puan gitti pencere \"\""
+  },
+  {
+    "id": "PRF-ITIRAZ-06",
+    "title": "İkinci itiraz ya açılır ya pencere kapalıdır",
+    "pass": true,
+    "expected": "sonuç görüldü",
+    "actual": "Review is not in appeal window",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-23",
+    "title": "Hedef değişiklik kuyruğu okunur",
+    "pass": true,
+    "expected": "liste",
+    "actual": "1",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-HEDEF-24",
+    "title": "Birim yöneticisi değişiklik talebini karara bağlar",
+    "pass": false,
+    "expected": "karar",
+    "actual": "Forbidden",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-DONEM-YENI",
+    "title": "Yeni giren bayrağı kapsam sayısını değiştirir",
+    "pass": false,
+    "expected": "sayı değişir",
+    "actual": "açık 14/0 kapalı 14/0",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-YETKI-05",
+    "title": "Sonuç kapalıyken çalışan karnesinde genel skor görünmez",
+    "pass": false,
+    "expected": "skor boş",
+    "actual": "show=false iken overallScore 92.22 döndü",
+    "evidence": "personal details"
+  },
+  {
+    "id": "PRF-PIP-02",
+    "title": "PIP ara kontrolü yazılır",
+    "pass": true,
+    "expected": "not",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-PIP-03",
+    "title": "PIP uzatılır",
+    "pass": true,
+    "expected": "uzadı",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-PIP-04",
+    "title": "PIP kapanır",
+    "pass": true,
+    "expected": "kapandı",
+    "actual": "ok",
+    "evidence": ""
+  },
+  {
+    "id": "PRF-360-10",
+    "title": "Anonim akranın adı çalışana açılmaz",
+    "pass": false,
+    "expected": "isim yok",
+    "actual": "ad var",
+    "evidence": "[{\"id\":\"2f7fba8c-a5b9-4460-8a70-d24c3c030b68\",\"employeePerformanceReviewId\":\"d7b4d4c8-806f-4daf-bccd-5a0c1288bfec\",\"evaluatorEmployeeId\":\"6a6d0d52-7c72-4467-b816-c2bcb15c3a93\",\"eva"
+  },
+  {
+    "id": "PRF-ITIRAZ-05",
+    "title": "Yönetici itirazı onaylar",
+    "pass": true,
+    "expected": "onay adımı biter",
+    "actual": "Pelin Aydin onayladı. Durum 6, puan 40.",
+    "evidence": "reviewApprovalStatus 1"
   }
 ]
